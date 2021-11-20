@@ -1,7 +1,7 @@
 -- DB NAME cinecurate_local
 
 CREATE TABLE users (
-    id SERIAL
+    id SERIAL NOT NULL
     username VARCHAR(50) NOT NULL,
     password VARCHAR(1024) NOT NULL,
     first_name VARCHAR(50) NOT NULL,
