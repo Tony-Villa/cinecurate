@@ -116,4 +116,4 @@ dist
 .pnp.*
 
 #db 
-db_config/db.sql
+.db_config/

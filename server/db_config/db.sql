@@ -1,10 +1,10 @@
 -- DB NAME cinecurate_local
 
 CREATE TABLE users (
-    id BIGSERIAL
-    username VARCHAR(50)
-    password VARCHAR(1024)
-    first_name VARCHAR(50)
+    id SERIAL
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(1024) NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
 )
 
 CREATE TABLE reviews (
