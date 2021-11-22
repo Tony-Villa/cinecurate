@@ -16,6 +16,7 @@ app.get('/', (req, res) => {
 });
 app.use('/v1/movies', routes.movies);
 app.use('/v1/reviews', routes.reviews);
+app.use('/v1/auth', routes.users);
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
