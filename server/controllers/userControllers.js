@@ -1,11 +1,9 @@
 const pool = require('../db_config/db');
 const bcrypt = require('bcrypt');
 const jwtGenerator = require('../utils/jwtGenerator');
-const { users } = require('.');
 require('dotenv').config();
 
 // REGISTER //
-
 const register = async (req, res) => {
   try {
     const { username, email, password, first_name } = req.body;
@@ -40,7 +38,6 @@ const register = async (req, res) => {
 };
 
 // LOGIN //
-
 const login = async (req, res) => {
   try {
     const { username, password } = req.body;

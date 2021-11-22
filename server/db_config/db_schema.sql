@@ -16,7 +16,7 @@ CREATE TABLE reviews (
     id BIGSERIAL
     movie_id INT
     user_id 
-    type
+    type 
     movie_title VARCHAR(50)
     rating INT
     review TEXT 
