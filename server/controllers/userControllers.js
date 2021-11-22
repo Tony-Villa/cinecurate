@@ -2,6 +2,7 @@ const pool = require('../db_config/db');
 const bcrypt = require('bcrypt');
 const jwtGenerator = require('../utils/jwtGenerator');
 const eamilValid = require('../middleware/emailValid');
+const authorization = require('../middleware/authorization');
 require('dotenv').config();
 
 // REGISTER //
@@ -72,7 +73,17 @@ const login = async (req, res) => {
   }
 };
 
+const isVerified = async (req, res) => {
+  try {
+    res.json(true);
+  } catch (err) {
+    console.log(err.message);
+    res.status(401).send('Not Authorized');
+  }
+};
+
 module.exports = {
   register,
   login,
+  isVerified,
 };
