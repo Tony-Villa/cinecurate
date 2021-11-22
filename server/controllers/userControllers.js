@@ -2,6 +2,7 @@ const pool = require('../db_config/db');
 const bcrypt = require('bcrypt');
 const jwtGenerator = require('../utils/jwtGenerator');
 const eamilValid = require('../middleware/emailValid');
+const authorization = require('../middleware/authorization');
 require('dotenv').config();
 
 // REGISTER //
@@ -72,7 +73,29 @@ const login = async (req, res) => {
   }
 };
 
+const isVerified = async (req, res) => {
+  try {
+    res.json(true);
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).send('Server Error');
+  }
+};
+
+const currentUser = async (req, res) => {
+  try {
+    const user = await pool.query('SELECT username,email,first_name FROM users WHERE id = $1', [req.user]);
+
+    res.json(user.rows[0]);
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).send('Server Error');
+  }
+};
+
 module.exports = {
   register,
   login,
+  isVerified,
+  currentUser,
 };
