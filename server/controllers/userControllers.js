@@ -78,7 +78,18 @@ const isVerified = async (req, res) => {
     res.json(true);
   } catch (err) {
     console.log(err.message);
-    res.status(401).send('Not Authorized');
+    res.status(500).send('Server Error');
+  }
+};
+
+const currentUser = async (req, res) => {
+  try {
+    const user = await pool.query('SELECT username,email,first_name FROM users WHERE id = $1', [req.user]);
+
+    res.json(user.rows[0]);
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).send('Server Error');
   }
 };
 
@@ -86,4 +97,5 @@ module.exports = {
   register,
   login,
   isVerified,
+  currentUser,
 };
