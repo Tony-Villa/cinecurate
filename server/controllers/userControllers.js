@@ -1,34 +1,68 @@
 const pool = require('../db_config/db');
 const bcrypt = require('bcrypt');
+const jwtGenerator = require('../utils/jwtGenerator');
+const { users } = require('.');
 require('dotenv').config();
+
+// REGISTER //
 
 const register = async (req, res) => {
   try {
-    // 1 - destructure req.body (username, email, password, first_name)
     const { username, email, password, first_name } = req.body;
 
-    // 2 - check if user exists (if user exists, throw error)
+    // Check if user exists (if user exists, throw error)
     const user = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
 
     if (user.rows.length != 0) {
       return res.status(401).send('This email already exists');
     }
 
-    // 3 - bcrypt user's pw
+    // hash pass
     const saltRounds = 10;
     const salt = await bcrypt.genSalt(saltRounds);
 
     const hashedPass = await bcrypt.hash(password, salt);
 
-    // 4 - save user to db
+    // save user to db
     const newUser = await pool.query(
       'INSERT INTO users (username, email, password, first_name) VALUES ($1,$2,$3,$4) RETURNING *',
       [username, email, hashedPass, first_name]
     );
 
-    res.json(newUser.rows[0]);
+    // gen jwt
+    const token = jwtGenerator(newUser.rows[0].id);
 
-    // 5 - generate JWT token
+    res.json({ token });
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).send('Server Error');
+  }
+};
+
+// LOGIN //
+
+const login = async (req, res) => {
+  try {
+    const { username, password } = req.body;
+
+    //check if user exists
+    const user = await pool.query('SELECT * FROM users WHERE username = $1', [username]);
+
+    if (user.rows.length === 0) {
+      return res.status(401).json('Username or Password is incorrect');
+    }
+
+    // validate pass
+    const validPass = await bcrypt.compare(password, user.rows[0].password);
+
+    if (!validPass) {
+      return res.status(401).json('Username or Password is incorrect');
+    }
+
+    // jwt
+    const token = jwtGenerator(user.rows[0].id);
+
+    res.json({ token });
   } catch (err) {
     console.log(err.message);
     res.status(500).send('Server Error');
@@ -37,4 +71,5 @@ const register = async (req, res) => {
 
 module.exports = {
   register,
+  login,
 };
