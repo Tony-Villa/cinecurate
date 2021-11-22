@@ -1,20 +1,24 @@
 const pool = require('../db_config/db');
 const bcrypt = require('bcrypt');
 const jwtGenerator = require('../utils/jwtGenerator');
-const { users } = require('.');
+const eamilValid = require('../middleware/emailValid');
 require('dotenv').config();
 
 // REGISTER //
-
 const register = async (req, res) => {
   try {
     const { username, email, password, first_name } = req.body;
 
     // Check if user exists (if user exists, throw error)
-    const user = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
+    const userEmail = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
+    const userNameCheck = await pool.query('SELECT * FROM users WHERE username = $1', [username]);
 
-    if (user.rows.length != 0) {
+    if (userEmail.rows.length != 0) {
       return res.status(401).send('This email already exists');
+    }
+
+    if (userNameCheck.rows.length != 0) {
+      return res.status(401).send('This username already exists');
     }
 
     // hash pass
@@ -40,7 +44,6 @@ const register = async (req, res) => {
 };
 
 // LOGIN //
-
 const login = async (req, res) => {
   try {
     const { username, password } = req.body;
