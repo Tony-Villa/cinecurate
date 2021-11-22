@@ -1,5 +1,6 @@
 const pool = require('../db_config/db');
 const bcrypt = require('bcrypt');
+const jwtGenerator = require('../utils/jwtGenerator');
 require('dotenv').config();
 
 const register = async (req, res) => {
@@ -26,9 +27,10 @@ const register = async (req, res) => {
       [username, email, hashedPass, first_name]
     );
 
-    res.json(newUser.rows[0]);
-
     // 5 - generate JWT token
+    const token = jwtGenerator(newUser.rows[0].id);
+
+    res.json({ token });
   } catch (err) {
     console.log(err.message);
     res.status(500).send('Server Error');
