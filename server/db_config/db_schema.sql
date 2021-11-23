@@ -2,7 +2,7 @@
 
 CREATE TABLE users (
     id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-    email VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
     username VARCHAR(50) NOT NULL,
     password VARCHAR(1024) NOT NULL,
     first_name VARCHAR(50) NOT NULL
@@ -54,14 +54,14 @@ ADD COLUMN updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW();
 CREATE TABLE preferences (
     id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
     user_id uuid REFERENCES users (id) ON DELETE CASCADE,
-    cinematography INT NOT NULL check(rating >=1 and rating <= 8),
-    story INT NOT NULL check(rating >=1 and rating <= 8),
-    acting INT NOT NULL check(rating >=1 and rating <= 8),
-    art INT NOT NULL check(rating >=1 and rating <= 8),
-    sound INT NOT NULL check(rating >=1 and rating <= 8),
-    hmu INT NOT NULL check(rating >=1 and rating <= 8),
-    eiditing INT NOT NULL check(rating >=1 and rating <= 8),
-    vfx INT NOT NULL check(rating >=1 and rating <= 8) 
+    cinematography INT NOT NULL check(cinematography >=1 and cinematography <= 8),
+    story INT NOT NULL check(story >=1 and story <= 8),
+    acting INT NOT NULL check(acting >=1 and acting <= 8),
+    art INT NOT NULL check(art >=1 and art <= 8),
+    sound INT NOT NULL check(sound >=1 and sound <= 8),
+    hmu INT NOT NULL check(hmu >=1 and hmu <= 8),
+    editing INT NOT NULL check(editing >=1 and editing <= 8),
+    vfx INT NOT NULL check(vfx >=1 and vfx <= 8) 
 );
 
 -- seed data for PREF
