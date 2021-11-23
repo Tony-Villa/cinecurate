@@ -54,24 +54,29 @@ ADD COLUMN updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW();
 CREATE TABLE preferences (
     id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
     user_id uuid REFERENCES users (id) ON DELETE CASCADE,
-    cinematography INT NOT NULL check(rating >=1 and rating <= 10),
-    story INT NOT NULL check(rating >=1 and rating <= 10),
-    acting INT NOT NULL check(rating >=1 and rating <= 10),
-    art INT NOT NULL check(rating >=1 and rating <= 10),
-    sound INT NOT NULL check(rating >=1 and rating <= 10),
-    hmu INT NOT NULL check(rating >=1 and rating <= 10),
-    eiditing INT NOT NULL check(rating >=1 and rating <= 10),
-    vfx INT NOT NULL check(rating >=1 and rating <= 10)
+    cinematography INT NOT NULL check(rating >=1 and rating <= 8),
+    story INT NOT NULL check(rating >=1 and rating <= 8),
+    acting INT NOT NULL check(rating >=1 and rating <= 8),
+    art INT NOT NULL check(rating >=1 and rating <= 8),
+    sound INT NOT NULL check(rating >=1 and rating <= 8),
+    hmu INT NOT NULL check(rating >=1 and rating <= 8),
+    eiditing INT NOT NULL check(rating >=1 and rating <= 8),
+    vfx INT NOT NULL check(rating >=1 and rating <= 8) 
 );
 
 -- seed data for PREF
 
---END OF PREF TABLE
+--END OF PREF TABLE 
 
 --START OF WISHLIST TABLE
 CREATE TABLE wishlist (
     id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
     user_id uuid REFERENCES users (id) ON DELETE CASCADE,
     movie_id INT,
-    movie_title VARCHAR(50)
+    movie_title VARCHAR(50),
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
+
+-- seed data for WISHLIST
+
+-- END OF WISHLIST TABLE
