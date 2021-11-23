@@ -5,7 +5,7 @@ require('dotenv').config();
 const showReviews = async (req, res, next) => {
   try {
     const allReviews = await pool.query(
-      'SELECT user_id, movie_title, rating, review FROM reviews WHERE movie_id = $1 AND review_type = $2',
+      'SELECT user_id, first_name, username, movie_title, rating, review FROM reviews INNER JOIN users ON reviews.user_id = users.id WHERE movie_id = $1 AND review_type = $2',
       [req.params.movie_id, req.params.category]
     );
 
