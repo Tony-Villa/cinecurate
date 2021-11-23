@@ -31,7 +31,41 @@ const create = async (req, res, next) => {
   }
 };
 
+const edit = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const { rating, review } = req.body;
+
+    const updatedReview = await pool.query('UPDATE reviews SET rating = $1, review = $2 WHERE id = $3', [
+      rating,
+      review,
+      id,
+    ]);
+
+    res.status(200).json('Review was updated!');
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).send('Server Error');
+  }
+};
+
+const deleteReview = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const deletedReview = await pool.query('DELETE FROM reviews WHERE id = $1', [id]);
+
+    res.status(200).json('Review was deleted!');
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).send('Server Error');
+  }
+};
+
 module.exports = {
   showReviews,
   create,
+  edit,
+  deleteReview,
 };
