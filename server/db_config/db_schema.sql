@@ -6,12 +6,19 @@ CREATE TABLE users (
     username VARCHAR(50) NOT NULL,
     password VARCHAR(1024) NOT NULL,
     first_name VARCHAR(50) NOT NULL
+
+    
 );
+
+-- add createdat/updatedat
+ALTER TABLE users 
+ADD COLUMN created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+ADD COLUMN updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW();
+
 
 -- insert fake users
 INSERT INTO users (email, username, password, first_name)
 VALUES ('tony@tony.com', 'tv123', 'larrylarry', 'tony');
-
 
 -- END OF USER TABLE
 
@@ -34,6 +41,13 @@ VALUES ('d39741c8-3e02-41ec-a3d2-6a9ba5bd2097','438631','Dune','cinematography',
 
 INSERT INTO reviews (user_id, movie_id, movie_title, review_type, rating, review)
 VALUES ('f3c4e705-6622-4a3d-99bb-049dca2fbcd3','438631','Dune','cinematography','2','idk what I am talking about when it comes to cinematography');
+
+
+-- alter review table
+ALTER TABLE reviews 
+ADD COLUMN created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+ADD COLUMN updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW();
+
 -- END OF REVIEW TABLE
 
 -- START OF PREF TABLE
