@@ -4,6 +4,8 @@ const ctrl = require('../controllers');
 //routes
 router.get('/:movie_id/:category', ctrl.reviews.showReviews);
 router.post('/', ctrl.reviews.create);
+router.put('/:id', ctrl.reviews.edit);
+router.delete('/:id', ctrl.reviews.deleteReview);
 
 // exports
 module.exports = router;
