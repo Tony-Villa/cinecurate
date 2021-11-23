@@ -1,8 +1,6 @@
 const pool = require('../db_config/db');
 const bcrypt = require('bcrypt');
 const jwtGenerator = require('../utils/jwtGenerator');
-const eamilValid = require('../middleware/emailValid');
-const authorization = require('../middleware/authorization');
 require('dotenv').config();
 
 // REGISTER //

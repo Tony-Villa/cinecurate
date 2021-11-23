@@ -15,6 +15,8 @@ VALUES ('tony@tony.com', 'tv123', 'larrylarry', 'tony');
 
 -- END OF USER TABLE
 
+
+-- START OF REVIEW TABLE
 CREATE TYPE category AS ENUM ('cinematography', 'story', 'acting', 'art', 'sound', 'hmu', 'editing', 'vfx');
 
 CREATE TABLE reviews (
@@ -32,3 +34,30 @@ VALUES ('d39741c8-3e02-41ec-a3d2-6a9ba5bd2097','438631','Dune','cinematography',
 
 INSERT INTO reviews (user_id, movie_id, movie_title, review_type, rating, review)
 VALUES ('f3c4e705-6622-4a3d-99bb-049dca2fbcd3','438631','Dune','cinematography','2','idk what I am talking about when it comes to cinematography');
+-- END OF REVIEW TABLE
+
+-- START OF PREF TABLE
+CREATE TABLE preferences (
+    id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+    user_id uuid REFERENCES users (id) ON DELETE CASCADE,
+    cinematography INT NOT NULL check(rating >=1 and rating <= 10),
+    story INT NOT NULL check(rating >=1 and rating <= 10),
+    acting INT NOT NULL check(rating >=1 and rating <= 10),
+    art INT NOT NULL check(rating >=1 and rating <= 10),
+    sound INT NOT NULL check(rating >=1 and rating <= 10),
+    hmu INT NOT NULL check(rating >=1 and rating <= 10),
+    eiditing INT NOT NULL check(rating >=1 and rating <= 10),
+    vfx INT NOT NULL check(rating >=1 and rating <= 10)
+);
+
+-- seed data for PREF
+
+--END OF PREF TABLE
+
+--START OF WISHLIST TABLE
+CREATE TABLE wishlist (
+    id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+    user_id uuid REFERENCES users (id) ON DELETE CASCADE,
+    movie_id INT,
+    movie_title VARCHAR(50)
+);
