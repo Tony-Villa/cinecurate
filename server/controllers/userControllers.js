@@ -51,20 +51,20 @@ const login = async (req, res) => {
     const user = await pool.query('SELECT * FROM users WHERE username = $1', [username]);
 
     if (user.rows.length === 0) {
-      return res.status(401).json('Username or Password is incorrect');
+      return res.status(401).json('Username is incorrect');
     }
 
     // validate pass
     const validPass = await bcrypt.compare(password, user.rows[0].password);
 
     if (!validPass) {
-      return res.status(401).json('Username or Password is incorrect');
+      return res.status(401).json('Password is incorrect');
     }
 
     // jwt
     const token = jwtGenerator(user.rows[0].id);
 
-    res.json({ token });
+    res.json({ token, userId: user.rows[0].id, userName: username, firstName: user.rows[0].first_name });
   } catch (err) {
     console.log(err.message);
     res.status(500).send('Server Error');
