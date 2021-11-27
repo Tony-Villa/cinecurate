@@ -1,0 +1,10 @@
+// @use '../../../scss/' as *;
+// @use '../../../scss/abstracts/' as *;
+
+ul {
+  border: 1px solid black;
+
+  li {
+    color: red;
+  }
+}
