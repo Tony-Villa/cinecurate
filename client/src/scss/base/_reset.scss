@@ -1,3 +1,8 @@
+@use '../abstracts/' as *;
+@use '../base/breakpoints' as *;
+
+// CSS RESET
+
 /* Box sizing rules */
 *,
 *::before,
@@ -71,4 +76,23 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+// app specific styles
+
+html {
+  font-size: 100%;
+
+  @include tablet {
+    font-size: 80%;
+  }
+
+  @include mobile {
+    font-size: 60%;
+  }
+}
+
+body {
+  background-color: $bgColor;
+  color: $textColor;
 }

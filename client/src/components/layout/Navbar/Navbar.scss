@@ -1,10 +1,27 @@
 @use '../../../scss/' as *;
 // @use '../../../scss/abstracts/' as *;
 
-ul {
-  border: 1px solid black;
+#navbar {
+  width: 100%;
+  //   border: 1px solid white;
+  padding: 0 get-spacing(15);
 
-  li {
-    color: $accentColor;
+  @include flex(row, space-between, center);
+}
+
+.nav-links {
+  //   border: 1px solid white;
+  width: 15%;
+
+  ul {
+    width: 100%;
+    // border: 1px solid lightblue;
+
+    @include flex(row, space-around, center);
+
+    li {
+      list-style-type: none;
+      color: $accentColor;
+    }
   }
 }

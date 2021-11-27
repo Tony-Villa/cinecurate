@@ -1,4 +1,25 @@
-@mixin flex() {
-  display: flex;
+@use '../base/breakpoints' as *;
+
+@mixin flex($flexDirection: row, $justifyContent, $alignItems) {
   flex-direction: $flexDirection;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+}
+
+@mixin mt($num) {
+  .mt-#{$num} {
+    margin-top: #{$num}rem;
+  }
+}
+
+@mixin mobile {
+  @media only screen and (max-width: $mobile-width) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (max-width: $tablet-width) {
+    @content;
+  }
 }
