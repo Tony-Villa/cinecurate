@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import { AuthForm } from './components/auth/AuthForm';
 import Navbar from './components/layout/Navbar/Navbar';
 

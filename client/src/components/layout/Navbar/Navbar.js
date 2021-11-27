@@ -1,6 +1,7 @@
 import React from 'react';
+import './Navbar.scss';
 
-function Navbar() {
+const Navbar = () => {
   return (
     <div id="navbar">
       <div className="logo">
@@ -17,6 +18,6 @@ function Navbar() {
       </div>
     </div>
   );
-}
+};
 
 export default Navbar;
