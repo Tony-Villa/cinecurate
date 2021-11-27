@@ -1,10 +1,11 @@
 import './App.css';
 import { AuthForm } from './components/auth/AuthForm';
+import Navbar from './components/layout/Navbar/Navbar';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
+      <Navbar />
       <AuthForm />
     </div>
   );
