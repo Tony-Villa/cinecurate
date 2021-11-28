@@ -1,12 +1,12 @@
 import './App.scss';
-import { AuthForm } from './components/auth/AuthForm';
 import Navbar from './components/layout/Navbar/Navbar';
+import routes from './routes/config/routes';
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      {/* <AuthForm /> */}
+      {routes}
     </div>
   );
 }

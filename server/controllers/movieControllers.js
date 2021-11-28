@@ -3,7 +3,7 @@ require('dotenv').config();
 
 const apiKey = process.env.APIKEY;
 
-const show = async (req, res) => {
+const show = async (req, res, next) => {
   try {
     const resp = await axios.get(
       `https://api.themoviedb.org/3/movie/${req.params.movie_id}?api_key=${apiKey}&language=en-US`

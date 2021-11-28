@@ -1,0 +1,10 @@
+@use '../../../scss/' as *;
+
+.show-info {
+  //   border: 1px solid yellow;
+
+  &__left {
+    width: 35%;
+    // border: 1px solid pink;
+  }
+}
