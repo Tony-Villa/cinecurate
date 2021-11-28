@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Radar } from '@nivo/radar';
 import './MovieGraph.scss';
 
 function MovieGraph() {
@@ -79,12 +80,12 @@ function MovieGraph() {
   };
 
   const commonProperties = {
-    width: 720,
-    height: 500,
+    width: 500,
+    height: 420,
     margin: { top: 60, right: 60, bottom: 60, left: 60 },
     data: data,
     indexBy: 'category',
-    keys: ['Sicario'],
+    keys: [movieTitle],
     borderColor: '#e41f7b',
     colors: ['#e41f7b'],
     theme: theme,
