@@ -2,6 +2,7 @@ const router = require('express').Router();
 const ctrl = require('../controllers');
 
 //routes
+router.get('/avgrating/:movie_id', ctrl.reviews.showAvgRating);
 router.get('/:movie_id/:category', ctrl.reviews.showReviews);
 router.get('/:movie_id', ctrl.reviews.showAllReviews);
 router.post('/', ctrl.reviews.create);

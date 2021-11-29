@@ -24,10 +24,6 @@ const ShowMovie = () => {
     <div className="show">
       <div className="show__top">
         <MovieSection {...movie} />
-        {/* <div className="show__poster">
-          <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="" />
-        </div>
-        <h1>{movie && movie.title}</h1> */}
       </div>
       <div className="show__bottom flex">
         <div className="show__reviews three-quarters">

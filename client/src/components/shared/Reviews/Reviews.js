@@ -29,7 +29,7 @@ function Reviews() {
   useEffect(() => {
     getReviews();
     console.log(activeCategory);
-  }, [activeCategory]);
+  }, [activeCategory, params.id]);
 
   return (
     <div>

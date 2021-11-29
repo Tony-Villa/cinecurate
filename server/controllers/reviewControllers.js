@@ -29,6 +29,21 @@ const showAllReviews = async (req, res, next) => {
   }
 };
 
+const showAvgRating = async (req, res) => {
+  try {
+    const { movie_id } = req.params;
+
+    const avgRatings = await pool.query(
+      'SELECT movie_title, review_type As category, ROUND(AVG(rating), 2) AS AvgRating FROM reviews WHERE movie_id = $1 GROUP BY review_type, movie_title ORDER BY review_type DESC',
+      [movie_id]
+    );
+
+    res.status(200).json({ avgRatings: avgRatings.rows });
+  } catch (err) {
+    res.statu(500).send('Server Error');
+  }
+};
+
 const create = async (req, res, next) => {
   try {
     const { user_id, movie_id, movie_title, review_type, rating, review } = req.body;
@@ -83,4 +98,5 @@ module.exports = {
   edit,
   deleteReview,
   showAllReviews,
+  showAvgRating,
 };

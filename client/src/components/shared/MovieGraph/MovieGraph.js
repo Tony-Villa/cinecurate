@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Radar } from '@nivo/radar';
+import { useParams } from 'react-router-dom';
 import './MovieGraph.scss';
 
-function MovieGraph() {
+function MovieGraph({ title }) {
   const [movieTitle, setMovieTitle] = useState('');
   const [cine, setCine] = useState(0);
   const [edit, setEdit] = useState(0);
@@ -13,38 +14,76 @@ function MovieGraph() {
   const [story, setStory] = useState(0);
   const [vfx, setVfx] = useState(0);
 
+  const params = useParams();
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      const res = await fetch(`http://localhost:3737/v1/reviews/avgrating/${params.id}`);
+      const parseRes = await res.json();
+      const ratingData = parseRes.avgRatings;
+
+      setMovieTitle(ratingData[0].movie_title);
+
+      ratingData.map((rating, idx) => {
+        if ((rating.category = 'cinematography')) {
+          setCine(rating.avgrating);
+        } else if ((rating.category = 'editing')) {
+          setEdit(rating.avgrating);
+        } else if ((rating.category = 'hmu')) {
+          setHmu(rating.avgrating);
+        } else if ((rating.category = 'acting')) {
+          setAct(rating.avgrating);
+        } else if ((rating.category = 'art')) {
+          setArt(rating.avgrating);
+        } else if ((rating.category = 'story')) {
+          setStory(rating.avgrating);
+        } else if ((rating.category = 'sound')) {
+          setSound(rating.avgrating);
+        } else if ((rating.category = 'vfx')) {
+          setVfx(rating.avgrating);
+        } else {
+          return;
+        }
+      });
+
+      console.log(data);
+    };
+
+    fetchStats();
+  }, [params.id]);
+
   const data = [
     {
       category: 'cinematography',
-      movieTitle: cine,
+      [movieTitle]: cine,
     },
     {
       category: 'editing',
-      movieTitle: edit,
+      [movieTitle]: edit,
     },
     {
       category: 'Hair/Makeup',
-      movieTitle: hmu,
+      [movieTitle]: hmu,
     },
     {
       category: 'acting',
-      movieTitle: act,
+      [movieTitle]: act,
     },
     {
       category: 'Art/Prod Design',
-      movieTitle: art,
+      [movieTitle]: art,
     },
     {
       category: 'Sound/Music',
-      movieTitle: sound,
+      [movieTitle]: sound,
     },
     {
       category: 'Story',
-      movieTitle: story,
+      [movieTitle]: story,
     },
     {
       category: 'vfx',
-      movieTitle: vfx,
+      [movieTitle]: vfx,
     },
   ];
 
@@ -84,6 +123,7 @@ function MovieGraph() {
     height: 420,
     margin: { top: 60, right: 60, bottom: 60, left: 60 },
     data: data,
+    maxValue: 10,
     indexBy: 'category',
     keys: [movieTitle],
     borderColor: '#e41f7b',
@@ -103,27 +143,7 @@ function MovieGraph() {
 
   return (
     <div className="movie-graph">
-      <Radar
-        {...commonProperties}
-        legends={[
-          {
-            dataFrom: 'keys',
-            data: commonProperties.keys.map((id, index) => ({
-              label: id?.length > 6 ? id.slice(0, 6) + '...' : id,
-            })),
-            anchor: 'top-left',
-            direction: 'column',
-            itemWidth: 56,
-            itemHeight: 12,
-            itemsSpacing: 12,
-            itemTextColor: '#ffffff',
-            symbolSize: 10,
-            symbolShape: 'circle',
-            translateX: -50,
-            translateY: 50,
-          },
-        ]}
-      />
+      <Radar {...commonProperties} />
     </div>
   );
 }
