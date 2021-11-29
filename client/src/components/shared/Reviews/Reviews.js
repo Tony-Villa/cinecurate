@@ -28,7 +28,6 @@ function Reviews() {
 
   useEffect(() => {
     getReviews();
-    console.log(activeCategory);
   }, [activeCategory, params.id]);
 
   return (

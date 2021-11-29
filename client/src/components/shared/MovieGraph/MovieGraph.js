@@ -22,29 +22,40 @@ function MovieGraph({ title }) {
       const parseRes = await res.json();
       const ratingData = parseRes.avgRatings;
 
-      setMovieTitle(ratingData[0].movie_title);
+      if (ratingData.length) {
+        setMovieTitle(ratingData[0].movie_title);
 
-      ratingData.map((rating, idx) => {
-        if ((rating.category = 'cinematography')) {
-          setCine(rating.avgrating);
-        } else if ((rating.category = 'editing')) {
-          setEdit(rating.avgrating);
-        } else if ((rating.category = 'hmu')) {
-          setHmu(rating.avgrating);
-        } else if ((rating.category = 'acting')) {
-          setAct(rating.avgrating);
-        } else if ((rating.category = 'art')) {
-          setArt(rating.avgrating);
-        } else if ((rating.category = 'story')) {
-          setStory(rating.avgrating);
-        } else if ((rating.category = 'sound')) {
-          setSound(rating.avgrating);
-        } else if ((rating.category = 'vfx')) {
-          setVfx(rating.avgrating);
-        } else {
-          return;
-        }
-      });
+        ratingData.map((rating, idx) => {
+          if ((rating.category = 'cinematography')) {
+            setCine(rating.avgrating);
+          } else if ((rating.category = 'editing')) {
+            setEdit(rating.avgrating);
+          } else if ((rating.category = 'hmu')) {
+            setHmu(rating.avgrating);
+          } else if ((rating.category = 'acting')) {
+            setAct(rating.avgrating);
+          } else if ((rating.category = 'art')) {
+            setArt(rating.avgrating);
+          } else if ((rating.category = 'sound')) {
+            setSound(rating.avgrating);
+          } else if ((rating.category = 'story')) {
+            setStory(rating.avgrating);
+          } else if ((rating.category = 'vfx')) {
+            setVfx(rating.avgrating);
+          } else {
+            return;
+          }
+        });
+      } else {
+        setCine(0);
+        setEdit(0);
+        setHmu(0);
+        setAct(0);
+        setArt(0);
+        setSound(0);
+        setStory(0);
+        setVfx(0);
+      }
 
       console.log(data);
     };
