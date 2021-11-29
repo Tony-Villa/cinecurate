@@ -26,21 +26,21 @@ function MovieGraph({ title }) {
         setMovieTitle(ratingData[0].movie_title);
 
         ratingData.map((rating, idx) => {
-          if ((rating.category = 'cinematography')) {
+          if (rating.category === 'cinematography') {
             setCine(rating.avgrating);
-          } else if ((rating.category = 'editing')) {
+          } else if (rating.category === 'editing') {
             setEdit(rating.avgrating);
-          } else if ((rating.category = 'hmu')) {
+          } else if (rating.category === 'hmu') {
             setHmu(rating.avgrating);
-          } else if ((rating.category = 'acting')) {
+          } else if (rating.category === 'acting') {
             setAct(rating.avgrating);
-          } else if ((rating.category = 'art')) {
+          } else if (rating.category === 'art') {
             setArt(rating.avgrating);
-          } else if ((rating.category = 'sound')) {
+          } else if (rating.category === 'sound') {
             setSound(rating.avgrating);
-          } else if ((rating.category = 'story')) {
+          } else if (rating.category === 'story') {
             setStory(rating.avgrating);
-          } else if ((rating.category = 'vfx')) {
+          } else if (rating.category === 'vfx') {
             setVfx(rating.avgrating);
           } else {
             return;
