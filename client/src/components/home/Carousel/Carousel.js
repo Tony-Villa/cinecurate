@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PosterThumb from '../../shared/PosterThumb/PosterThumb';
+import './Carousel.scss';
 
-function Carousel() {
+function Carousel({ list }) {
   const [movieSet, setMovieSet] = useState([]);
+
+  const label = list.charAt(0).toUpperCase() + list.slice(1);
 
   const getMovieSet = async () => {
     try {
-      const res = await fetch(`http://localhost:3737/v1/movies/popular`);
+      const res = await fetch(`http://localhost:3737/v1/movies/${list}`);
       const parsedRes = await res.json();
 
       const data = parsedRes.movies.results;
@@ -36,9 +39,11 @@ function Carousel() {
   //   <img src="https://image.tmdb.org/t/p/w500/"+{movie.poster_path} alt={movie.title} />
 
   return (
-    <div className="carousel flex">
-      <h3>todo: make this a flex container that is scrollable</h3>
-      {movieSet.length ? genMovieSet(movieSet) : <h3>loading...</h3>}
+    <div className="carousel">
+      <div className="carousel__items-container">
+        <h2 className="carousel__label header-font">{label} movies:</h2>
+        <div className="carousel__items flex">{movieSet.length ? genMovieSet(movieSet) : <h3>loading...</h3>}</div>
+      </div>
     </div>
   );
 }

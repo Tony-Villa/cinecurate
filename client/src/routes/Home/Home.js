@@ -4,8 +4,9 @@ import Carousel from '../../components/home/Carousel/Carousel';
 function Home() {
   return (
     <div>
-      <h1 className="header">This is the welcome page</h1>
-      <Carousel />
+      <h1 className="header-font">WELCOME</h1>
+
+      <Carousel list={'popular'} />
     </div>
   );
 }
