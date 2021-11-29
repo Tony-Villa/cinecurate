@@ -35,12 +35,9 @@ function Reviews() {
       <h1>Reviews</h1>
       <div className="category-nav flex">
         {categories.map((el, idx) => (
-          <span>
-            <button key={idx} className="cateogory-link" onClick={() => setActiveCategory(el.enum)}>
-              {el.display}
-            </button>
-            {/* {idx < catLength ? <p> | </p> : null} */}
-          </span>
+          <button key={idx} className="cateogory-link" onClick={() => setActiveCategory(el.enum)}>
+            {el.display}
+          </button>
         ))}
       </div>
       {reviews.map((el, idx) => (

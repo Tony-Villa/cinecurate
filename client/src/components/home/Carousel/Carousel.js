@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import PosterThumb from '../../shared/PosterThumb/PosterThumb';
 import './Carousel.scss';
 
-function Carousel({ list }) {
+function Carousel(props) {
   const [movieSet, setMovieSet] = useState([]);
 
-  const label = list.charAt(0).toUpperCase() + list.slice(1);
+  // const label = list.charAt(0).toUpperCase() + list.slice(1);
 
   const getMovieSet = async () => {
     try {
-      const res = await fetch(`http://localhost:3737/v1/movies/${list}`);
+      const res = await fetch(`http://localhost:3737/v1/movies/${props.list.api}`);
       const parsedRes = await res.json();
 
       const data = parsedRes.movies.results;
@@ -41,7 +41,7 @@ function Carousel({ list }) {
   return (
     <div className="carousel">
       <div className="carousel__items-container">
-        <h2 className="carousel__label header-font">{label} movies:</h2>
+        <h2 className="carousel__label header-font">{props.list.label} movies:</h2>
         <div className="carousel__items flex">{movieSet.length ? genMovieSet(movieSet) : <h3>loading...</h3>}</div>
       </div>
     </div>

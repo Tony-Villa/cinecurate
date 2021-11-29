@@ -56,8 +56,6 @@ function MovieGraph({ title }) {
         setStory(0);
         setVfx(0);
       }
-
-      console.log(data);
     };
 
     fetchStats();
