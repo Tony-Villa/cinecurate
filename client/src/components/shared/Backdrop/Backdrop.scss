@@ -1,0 +1,13 @@
+@use '../../../scss/' as *;
+
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #000000e1;
+  z-index: 2;
+
+  @include flex(row, center, center);
+}

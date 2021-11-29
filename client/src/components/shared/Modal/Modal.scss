@@ -1,0 +1,15 @@
+@use '../../../scss/' as *;
+
+.modal {
+  width: clamp(50%, 700px, 90%);
+  height: min(50%, 600px);
+
+  margin: auto;
+  padding: 0, 2rem;
+  border-radius: 0.75rem;
+  z-index: 3;
+
+  border: 1px solid white;
+
+  @include flex(column, flex-start, center);
+}
