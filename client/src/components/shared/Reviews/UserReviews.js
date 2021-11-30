@@ -1,11 +1,13 @@
+import { AnimatePresence } from 'framer-motion';
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ReloadContext } from '../../../Context/ReloadContext';
+import Modal from '../Modal/Modal';
+import EditReview from './EditReview';
 import './Reviews.scss';
 
-const UserReviews = ({ id, title }) => {
+const UserReviews = () => {
   const { isReload, setIsReload } = useContext(ReloadContext);
-
   const [reviews, setReviews] = useState([]);
 
   const params = useParams();
@@ -19,16 +21,20 @@ const UserReviews = ({ id, title }) => {
   };
 
   const deleteReview = async (id) => {
-    const res = await fetch(`http://localhost:3737/v1/reviews/${id}`, {
-      method: 'DELETE',
-    });
-    const parseRes = await res.json();
-    const data = parseRes.reviews;
+    try {
+      const res = await fetch(`http://localhost:3737/v1/reviews/${id}`, {
+        method: 'DELETE',
+      });
+
+      setReviews(reviews.filter((review) => review.id !== id));
+    } catch (err) {
+      console.log(err.message);
+    }
   };
 
   useEffect(() => {
     getReviews();
-  }, [params.id, isReload, deleteReview]);
+  }, [params.id, isReload]);
 
   return (
     <div className="review flex">
@@ -43,9 +49,11 @@ const UserReviews = ({ id, title }) => {
               <h4 className="title-font">{el.rating}</h4>
               <p className="content-font"> {el.review} </p>
             </div>
-            <div className="review__user-options">
-              <button>edit</button>
-              <button onClick={() => deleteReview(el.id)}>delete</button>
+            <div className="review__user-options flex">
+              <EditReview className="btn-edit" content={el} />
+              <button className="btn-delete" onClick={() => deleteReview(el.id)}>
+                delete
+              </button>
             </div>
           </div>
         ))}

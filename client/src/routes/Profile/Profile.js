@@ -7,6 +7,8 @@ function Profile() {
 
   const tabs = [{ display: 'My Reviews' }, { display: 'Watchlist' }, { display: 'Preferences' }];
 
+  console.log('hello');
+
   return (
     <div className="profile">
       <h1>This is profile</h1>
