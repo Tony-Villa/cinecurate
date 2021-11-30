@@ -23,7 +23,9 @@ function PostReview({ category, title, movie_id }) {
   return (
     <div>
       <div className="review">
-        <h1>post review</h1>
+        <h3>
+          Review {title}'s {category}
+        </h3>
         <button className="review__post" onClick={() => (modalOpen ? close() : open())}>
           +
         </button>

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from '../../../../Context/UserContext';
 
-function ReviewForm({ category, title, id }) {
+function ReviewForm({ category, title, id, handleClose }) {
   const { user } = useContext(UserContext);
 
   const [inputs, setInputs] = useState({
@@ -19,8 +19,22 @@ function ReviewForm({ category, title, id }) {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
   };
 
-  const onSubmitForm = (e) => {
+  const onSubmitForm = async (e) => {
     e.preventDefault();
+
+    const body = { user_id, movie_id, movie_title, review_type, rating, review };
+
+    try {
+      const res = await fetch(`http://localhost:3737/v1/reviews`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+      //   const parsedRes = await res.json()
+      handleClose();
+    } catch (err) {
+      console.log(err.message);
+    }
 
     console.log(user_id, movie_title, movie_id, review_type);
   };

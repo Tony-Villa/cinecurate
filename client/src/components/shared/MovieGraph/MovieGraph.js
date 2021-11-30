@@ -63,20 +63,20 @@ function MovieGraph({ title }) {
 
   const data = [
     {
-      category: 'cinematography',
+      category: 'Cinematography',
       [movieTitle]: cine,
-    },
-    {
-      category: 'editing',
-      [movieTitle]: edit,
     },
     {
       category: 'Hair/Makeup',
       [movieTitle]: hmu,
     },
     {
-      category: 'acting',
+      category: 'Acting',
       [movieTitle]: act,
+    },
+    {
+      category: 'Story',
+      [movieTitle]: story,
     },
     {
       category: 'Art/Prod Design',
@@ -87,11 +87,12 @@ function MovieGraph({ title }) {
       [movieTitle]: sound,
     },
     {
-      category: 'Story',
-      [movieTitle]: story,
+      category: 'Editing',
+      [movieTitle]: edit,
     },
+
     {
-      category: 'vfx',
+      category: 'VFX',
       [movieTitle]: vfx,
     },
   ];
@@ -100,7 +101,8 @@ function MovieGraph({ title }) {
     axis: {
       ticks: {
         text: {
-          fill: 'rgba(255, 255, 255, .50)',
+          fill: 'rgba(255, 255, 255, .80)',
+          fontSize: 16,
         },
       },
     },
