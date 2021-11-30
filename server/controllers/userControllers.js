@@ -82,7 +82,7 @@ const isVerified = async (req, res) => {
 
 const currentUser = async (req, res) => {
   try {
-    const user = await pool.query('SELECT username,email,first_name FROM users WHERE id = $1', [req.user]);
+    const user = await pool.query('SELECT id, username,email,first_name FROM users WHERE id = $1', [req.user]);
 
     res.json(user.rows[0]);
   } catch (err) {
