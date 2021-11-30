@@ -1,8 +1,10 @@
 import React, { useContext, useState } from 'react';
+import { ReloadContext } from '../../../../Context/ReloadContext';
 import { UserContext } from '../../../../Context/UserContext';
 
 function ReviewForm({ category, title, id, handleClose }) {
   const { user } = useContext(UserContext);
+  const { isReload, setIsReload } = useContext(ReloadContext);
 
   const [inputs, setInputs] = useState({
     user_id: user.id,
@@ -31,33 +33,12 @@ function ReviewForm({ category, title, id, handleClose }) {
         body: JSON.stringify(body),
       });
       //   const parsedRes = await res.json()
+      setIsReload(!isReload);
       handleClose();
     } catch (err) {
       console.log(err.message);
     }
-
-    console.log(user_id, movie_title, movie_id, review_type);
   };
-
-  //   const onSubmitForm = async (e) => {
-  //     e.preventDefault();
-  //     try {
-  //       const body = { user_id, movie_id, first_name, password };
-
-  //       const res = await fetch(`http://localhost:3737/v1/auth/register`, {
-  //         method: 'POST',
-  //         headers: { 'Content-Type': 'application/json' },
-  //         body: JSON.stringify(body),
-  //       });
-  //       const parsedRes = await res.json();
-
-  //       localStorage.setItem('token', parsedRes.token);
-  //       setAuth(true);
-  //       handleClose();
-  //     } catch (err) {
-  //       console.log(err.message);
-  //     }
-  //   };
 
   return (
     <div>

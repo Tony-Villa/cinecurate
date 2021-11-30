@@ -1,12 +1,14 @@
 import { useEffect, useMemo, useState } from 'react';
 import './App.scss';
 import Navbar from './components/layout/Navbar/Navbar';
+import { ReloadContext } from './Context/ReloadContext';
 import { UserContext } from './Context/UserContext';
 import routes from './routes/config/routes';
 
 function App() {
   const [isUser, setIsUser] = useState(false);
   const [user, setUser] = useState(null);
+  const [isReload, setIsReload] = useState(false);
 
   const value = useMemo(() => ({ user, setUser }), [user, setUser]);
 
@@ -58,7 +60,7 @@ function App() {
     <div className="App">
       <UserContext.Provider value={value}>
         <Navbar isUser={isUser} setAuth={setAuth} />
-        {routes}
+        <ReloadContext.Provider value={{ isReload, setIsReload }}>{routes}</ReloadContext.Provider>
       </UserContext.Provider>
     </div>
   );

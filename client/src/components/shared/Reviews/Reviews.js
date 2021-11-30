@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { ReloadContext } from '../../../Context/ReloadContext';
 import PostReview from './PostReview';
 import './Reviews.scss';
 
 function Reviews({ id, title }) {
+  const { isReload, setIsReload } = useContext(ReloadContext);
+
   const categories = [
     { enum: 'cinematography', display: 'Cinematography' },
     { enum: 'story', display: 'Story' },
@@ -31,7 +34,7 @@ function Reviews({ id, title }) {
 
   useEffect(() => {
     getReviews();
-  }, [activeCategory, params.id]);
+  }, [activeCategory, params.id, isReload]);
 
   return (
     <div className="review flex">

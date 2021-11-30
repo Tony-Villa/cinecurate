@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Radar } from '@nivo/radar';
 import { useParams } from 'react-router-dom';
 import './MovieGraph.scss';
+import { ReloadContext } from '../../../Context/ReloadContext';
 
 function MovieGraph({ title }) {
+  const { isReload, setIsReload } = useContext(ReloadContext);
+
   const [movieTitle, setMovieTitle] = useState('');
   const [cine, setCine] = useState(0);
   const [edit, setEdit] = useState(0);
@@ -59,7 +62,7 @@ function MovieGraph({ title }) {
     };
 
     fetchStats();
-  }, [params.id]);
+  }, [params.id, isReload]);
 
   const data = [
     {
