@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Reviews from '../../components/shared/Reviews/Reviews';
 import MovieSection from '../../components/showMovie/MovieSection/MovieSection';
 import Similar from '../../components/showMovie/Similar/Similar';
+import './ShowMovie.scss';
 
 const ShowMovie = () => {
   const [movie, setMovie] = useState({});
@@ -18,6 +19,7 @@ const ShowMovie = () => {
 
   useEffect(() => {
     getMovie();
+    window.scrollTo(0, 0);
   }, [params.id]);
 
   return (
@@ -26,7 +28,7 @@ const ShowMovie = () => {
         <MovieSection {...movie} />
       </div>
       <div className="show__bottom flex">
-        <div className="show__reviews three-quarters">
+        <div className="show__reviews flex three-quarters">
           <Reviews />
         </div>
         <div className="show__similar">

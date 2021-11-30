@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Carousel from '../../components/home/Carousel/Carousel';
+import { UserContext } from '../../Context/UserContext';
 
 function Home() {
+  const { user } = useContext(UserContext);
+  // const { first_name } = user;
+
   const carouselOptions = [
     {
       api: 'popular',
@@ -17,9 +21,11 @@ function Home() {
     },
   ];
 
+  console.log(user);
+
   return (
     <div>
-      <h1 className="header-font">WELCOME</h1>
+      {user && <h1 className="header-font">WELCOME {user.first_name}!</h1>}
 
       <Carousel list={carouselOptions[0]} />
       <Carousel list={carouselOptions[1]} />

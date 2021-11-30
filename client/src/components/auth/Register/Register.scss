@@ -1,0 +1,15 @@
+@use '../../../scss/' as *;
+
+.register {
+  height: 100%;
+
+  &__form {
+    height: 80%;
+
+    @include flex(column, space-between, center);
+  }
+}
+
+.input-auth {
+  margin-top: 1.5rem;
+}

@@ -35,7 +35,7 @@ function Modal({ handleClose, text }) {
         animate="visible"
         exit="exit"
       >
-        <p>{text}</p>
+        <div className="modal__content">{text}</div>
         <button onClick={handleClose}>Close</button>
       </motion.div>
     </Backdrop>

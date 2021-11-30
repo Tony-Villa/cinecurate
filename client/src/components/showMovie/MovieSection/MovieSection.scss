@@ -10,7 +10,7 @@
 
   &__img-mask {
     position: absolute;
-    top: -3.5rem;
+    top: -4rem;
     height: 33.5rem;
     width: 100%;
     // background-color: $bgColor;
@@ -47,30 +47,11 @@
       hsla(0, 0%, 11%, 0.987) 95.1%,
       hsl(0, 0%, 11%) 100%
     );
-    // background-image: linear-gradient(
-    //   to bottom,
-    //   hsla(0, 0%, 11%, 0.1) 0%,
-    //   hsla(0, 0%, 11%, 0.111) 9%,
-    //   hsla(0, 0%, 11%, 0.144) 17.6%,
-    //   hsla(0, 0%, 11%, 0.194) 25.8%,
-    //   hsla(0, 0%, 11%, 0.258) 33.6%,
-    //   hsla(0, 0%, 11%, 0.333) 41%,
-    //   hsla(0, 0%, 11%, 0.417) 48.2%,
-    //   hsla(0, 0%, 11%, 0.505) 55%,
-    //   hsla(0, 0%, 11%, 0.595) 61.5%,
-    //   hsla(0, 0%, 11%, 0.683) 67.7%,
-    //   hsla(0, 0%, 11%, 0.767) 73.6%,
-    //   hsla(0, 0%, 11%, 0.842) 79.3%,
-    //   hsla(0, 0%, 11%, 0.906) 84.8%,
-    //   hsla(0, 0%, 11%, 0.956) 90.1%,
-    //   hsla(0, 0%, 11%, 0.989) 95.1%,
-    //   hsl(0, 0%, 11%) 100%
-    // );
   }
 
   &__backdrop {
     position: absolute;
-    top: -3.5rem;
+    top: -4rem;
     opacity: 30%;
     max-height: 33.5rem;
     width: 100%;

@@ -1,15 +1,25 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Modal from '../../shared/Modal/Modal';
 import Searchbar from '../Searchbar/Searchbar';
 import './Navbar.scss';
 import { AuthForm } from '../../auth/AuthForm/AuthForm';
+import { UserContext } from '../../../Context/UserContext';
 
-const Navbar = () => {
+const Navbar = ({ isUser, setAuth }) => {
   const [modalOpen, setModalOpen] = useState(false);
+
+  const { user } = useContext(UserContext);
+  // const { first_name } = user;
 
   const close = () => setModalOpen(false);
   const open = () => setModalOpen(true);
+
+  const logout = (e) => {
+    e.preventDefault();
+    localStorage.removeItem('token');
+    setAuth(false);
+  };
 
   return (
     <nav className="nav flex">
@@ -21,14 +31,28 @@ const Navbar = () => {
       <Searchbar />
       <div className="nav__links">
         <ul className="nav__ul flex">
+          {user && <li className="nav_li">{user.first_name}</li>}
           <li className="nav__li">Browse</li>
-          <button className="nav__li" onClick={() => (modalOpen ? close() : open())}>
-            Sign In/Up
-          </button>
+
+          {!isUser ? (
+            <button className="nav__li" onClick={() => (modalOpen ? close() : open())}>
+              Sign In/Up
+            </button>
+          ) : (
+            <button className="logout" onClick={(e) => logout(e)}>
+              Log Out
+            </button>
+          )}
         </ul>
 
         <AnimatePresence initial={false} exitBeforeEnter={true}>
-          {modalOpen && <Modal text={<AuthForm />} modalOpen={modalOpen} handleClose={close} />}
+          {modalOpen && (
+            <Modal
+              text={<AuthForm setAuth={setAuth} handleClose={close} />}
+              modalOpen={modalOpen}
+              handleClose={close}
+            />
+          )}
         </AnimatePresence>
       </div>
     </nav>

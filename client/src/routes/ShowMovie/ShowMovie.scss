@@ -1,0 +1,8 @@
+@use '../../scss/' as *;
+
+.show {
+  &__reviews {
+    border: 2px solid blue;
+    @include flex(row, center, flex-start);
+  }
+}

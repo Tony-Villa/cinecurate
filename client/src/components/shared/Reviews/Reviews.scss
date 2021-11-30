@@ -1,0 +1,17 @@
+@use '../../../scss/' as *;
+
+.review {
+  width: clamp(80%, 900px, 90%);
+
+  @include flex(row, center, flex-start);
+  border: 1px solid white;
+
+  &__container {
+    width: 100%;
+  }
+
+  &__card {
+    &__content {
+    }
+  }
+}

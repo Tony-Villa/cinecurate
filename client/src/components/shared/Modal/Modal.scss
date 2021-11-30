@@ -11,5 +11,10 @@
 
   border: 1px solid white;
 
-  @include flex(column, flex-start, center);
+  @include flex(column, center, center);
+
+  &__content {
+    height: 70%;
+    margin-top: 2rem;
+  }
 }

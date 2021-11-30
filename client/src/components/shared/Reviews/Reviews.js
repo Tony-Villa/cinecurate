@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import './Reviews.scss';
 
 function Reviews() {
   const categories = [
@@ -16,7 +17,11 @@ function Reviews() {
 
   const [reviews, setReviews] = useState([]);
   const [activeCategory, setActiveCategory] = useState('cinematography');
+  const [modalOpen, setModalOpen] = useState(false);
+
   const params = useParams();
+  const close = () => setModalOpen(false);
+  const open = () => setModalOpen(true);
 
   const getReviews = async () => {
     const res = await fetch(`http://localhost:3737/v1/reviews/${params.id}/${activeCategory}`);
@@ -31,26 +36,28 @@ function Reviews() {
   }, [activeCategory, params.id]);
 
   return (
-    <div>
-      <h1>Reviews</h1>
-      <div className="category-nav flex">
-        {categories.map((el, idx) => (
-          <button key={idx} className="cateogory-link" onClick={() => setActiveCategory(el.enum)}>
-            {el.display}
-          </button>
+    <div className="review flex">
+      <div className="review__container">
+        <h1>What other cinephiles thought:</h1>
+        <div className="category-nav flex">
+          {categories.map((el, idx) => (
+            <button key={idx} className="cateogory-link" onClick={() => setActiveCategory(el.enum)}>
+              {el.display}
+            </button>
+          ))}
+        </div>
+        {reviews.map((el, idx) => (
+          <div key={idx} className="review__card">
+            <div className="review__card__author-info">
+              <h4 className="content-font">{el.first_name}</h4>
+            </div>
+            <div className="review__card__content">
+              <h4 className="title-font">{el.rating}</h4>
+              <p className="content-font"> {el.review} </p>
+            </div>
+          </div>
         ))}
       </div>
-      {reviews.map((el, idx) => (
-        <div key={idx} className="review-card">
-          <div className="review-card__author-info">
-            <h4 className="content-font">{el.first_name}</h4>
-          </div>
-          <div className="review-card__review-content">
-            <h4 className="title-font">{el.rating}</h4>
-            <p className="content-font"> {el.review} </p>
-          </div>
-        </div>
-      ))}
     </div>
   );
 }
