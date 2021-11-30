@@ -87,7 +87,7 @@ const currentUser = async (req, res) => {
     res.json(user.rows[0]);
   } catch (err) {
     console.log(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).json({ message: 'Server Error' });
   }
 };
 
