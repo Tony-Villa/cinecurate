@@ -5,6 +5,7 @@ import Searchbar from '../Searchbar/Searchbar';
 import './Navbar.scss';
 import { AuthForm } from '../../auth/AuthForm/AuthForm';
 import { UserContext } from '../../../Context/UserContext';
+import { Link } from 'react-router-dom';
 
 const Navbar = ({ isUser, setAuth }) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -31,7 +32,11 @@ const Navbar = ({ isUser, setAuth }) => {
       <Searchbar />
       <div className="nav__links">
         <ul className="nav__ul flex">
-          {user && <li className="nav_li">{user.first_name}</li>}
+          {user && (
+            <Link className="text-link" to={`profile/${user.username}`}>
+              {user.first_name}
+            </Link>
+          )}
           <li className="nav__li">Browse</li>
 
           {!isUser ? (

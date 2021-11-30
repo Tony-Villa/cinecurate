@@ -38,7 +38,7 @@ function App() {
       });
       const parsedRes = await res.json();
 
-      if (parsedRes != true) {
+      if (parsedRes !== true) {
         return;
       }
 
