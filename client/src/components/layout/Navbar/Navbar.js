@@ -33,7 +33,7 @@ const Navbar = ({ isUser, setAuth }) => {
       <div className="nav__links">
         <ul className="nav__ul flex">
           {user && (
-            <Link className="text-link" to={`profile/${user.username}`}>
+            <Link className="text-link" to={`profile/${user.id}`}>
               {user.first_name}
             </Link>
           )}

@@ -8,6 +8,6 @@ export default (
   <Routes>
     <Route index exact path="/" element={<Home />} />
     <Route path="/movie/:id" element={<ShowMovie />} />
-    <Route path="/profile/:username" element={<Profile />} />
+    <Route path="/profile/:user_id" element={<Profile />} />
   </Routes>
 );
