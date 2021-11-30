@@ -1,3 +1,4 @@
+import { m } from 'framer-motion';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Reviews from '../../components/shared/Reviews/Reviews';
@@ -29,7 +30,7 @@ const ShowMovie = () => {
       </div>
       <div className="show__bottom flex">
         <div className="show__reviews flex three-quarters">
-          <Reviews />
+          <Reviews {...movie} />
         </div>
         <div className="show__similar">
           <Similar />

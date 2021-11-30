@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import PostReview from './PostReview';
 import './Reviews.scss';
 
-function Reviews() {
+function Reviews({ id, title }) {
   const categories = [
     { enum: 'cinematography', display: 'Cinematography' },
     { enum: 'story', display: 'Story' },
@@ -17,11 +18,8 @@ function Reviews() {
 
   const [reviews, setReviews] = useState([]);
   const [activeCategory, setActiveCategory] = useState('cinematography');
-  const [modalOpen, setModalOpen] = useState(false);
 
   const params = useParams();
-  const close = () => setModalOpen(false);
-  const open = () => setModalOpen(true);
 
   const getReviews = async () => {
     const res = await fetch(`http://localhost:3737/v1/reviews/${params.id}/${activeCategory}`);
@@ -38,13 +36,16 @@ function Reviews() {
   return (
     <div className="review flex">
       <div className="review__container">
-        <h1>What other cinephiles thought:</h1>
-        <div className="category-nav flex">
+        <h1 className="header-font">What other cinephiles thought:</h1>
+        <div className="review__nav flex">
           {categories.map((el, idx) => (
             <button key={idx} className="cateogory-link" onClick={() => setActiveCategory(el.enum)}>
               {el.display}
             </button>
           ))}
+        </div>
+        <div className="review__options flex">
+          <PostReview title={title} movie_id={id} category={activeCategory} />
         </div>
         {reviews.map((el, idx) => (
           <div key={idx} className="review__card">
