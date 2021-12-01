@@ -29,13 +29,7 @@ function Register({ setAuth, handleClose }) {
       });
       const parsedRes = await res.json();
 
-      // if (res?.body) {
-      //   console.log('has token', res);
-      // } else {
-      //   console.log('nope', res);
-      // }
-
-      localStorage.setItem('token', 'asldkjalskdj');
+      localStorage.setItem('token', parsedRes.token);
       setAuth(true);
       handleClose();
     } catch (err) {
