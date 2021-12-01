@@ -32,6 +32,15 @@ function Reviews({ id, title }) {
     setReviews(data);
   };
 
+  const getActiveCategory = (active, display) => {
+    let opacityNav =
+      (active === 'cinematography' && display == 'Cinematography') || (active === 'story' && display == 'Story')
+        ? { opacity: '1' }
+        : { opacity: '.5' };
+
+    return opacityNav;
+  };
+
   useEffect(() => {
     getReviews();
   }, [activeCategory, params.id, isReload]);
@@ -42,7 +51,12 @@ function Reviews({ id, title }) {
         <h1 className="header-font">What other cinephiles thought:</h1>
         <div className="review__nav flex">
           {categories.map((el, idx) => (
-            <button key={idx} className="cateogory-link" onClick={() => setActiveCategory(el.enum)}>
+            <button
+              style={getActiveCategory(activeCategory, el.display)}
+              key={idx}
+              className="btn-category cateogory-link"
+              onClick={() => setActiveCategory(el.enum)}
+            >
               {el.display}
             </button>
           ))}

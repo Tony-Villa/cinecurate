@@ -18,10 +18,10 @@ const show = async (req, res, next) => {
 };
 
 const search = async (req, res, next) => {
-  const { q } = req.query;
+  const { q, page } = req.query;
 
   const resp = await axios.get(
-    `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${q}&page=1&include_adult=false`
+    `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${q}&page=${page}&include_adult=false`
   );
 
   const foundMovie = await resp.data;
