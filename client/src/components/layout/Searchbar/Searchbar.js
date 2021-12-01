@@ -7,7 +7,7 @@ function Searchbar() {
     e.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:3737/v1/movies/search?q=${query}`, {
+      const response = await fetch(`https://api-cinecurate.herokuapp.com/v1/movies/search?q=${query}`, {
         method: 'GET',
         headers: { 'Content-type': 'application/json' },
       });

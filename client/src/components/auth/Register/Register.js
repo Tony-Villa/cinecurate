@@ -20,7 +20,7 @@ function Register({ setAuth, handleClose }) {
     try {
       const body = { email, username, first_name, password };
 
-      const res = await fetch(`http://localhost:3737/v1/auth/register`, {
+      const res = await fetch(`https://api-cinecurate.herokuapp.com/v1/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),

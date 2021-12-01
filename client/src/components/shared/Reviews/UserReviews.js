@@ -13,7 +13,7 @@ const UserReviews = () => {
   const params = useParams();
 
   const getReviews = async () => {
-    const res = await fetch(`http://localhost:3737/v1/reviews/${params.user_id}`);
+    const res = await fetch(`https://api-cinecurate.herokuapp.com/v1/reviews/${params.user_id}`);
     const parseRes = await res.json();
     const data = parseRes.reviews;
 
@@ -22,7 +22,7 @@ const UserReviews = () => {
 
   const deleteReview = async (id) => {
     try {
-      const res = await fetch(`http://localhost:3737/v1/reviews/${id}`, {
+      const res = await fetch(`https://api-cinecurate.herokuapp.com/v1/reviews/${id}`, {
         method: 'DELETE',
       });
 

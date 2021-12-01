@@ -18,7 +18,7 @@ function App() {
 
   const getUser = async () => {
     try {
-      const res = await fetch(`http://localhost:3737/v1/auth/profile`, {
+      const res = await fetch(`https://api-cinecurate.herokuapp.com/v1/auth/profile`, {
         method: 'GET',
         headers: { token: localStorage.token },
       });
@@ -32,7 +32,7 @@ function App() {
 
   const isAuth = async () => {
     try {
-      const res = await fetch(`http://localhost:3737/v1/auth/isVerified`, {
+      const res = await fetch(`https://api-cinecurate.herokuapp.com/v1/auth/isVerified`, {
         method: 'GET',
         headers: { token: localStorage.token },
       });

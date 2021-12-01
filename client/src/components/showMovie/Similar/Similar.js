@@ -7,7 +7,7 @@ function Similar() {
   const params = useParams();
 
   const getSimilar = async () => {
-    const res = await fetch(`http://localhost:3737/v1/movies/similar/${params.id}`);
+    const res = await fetch(`https://api-cinecurate.herokuapp.com/v1/movies/similar/${params.id}`);
     const parsedRes = await res.json();
     const data = parsedRes.movies.results;
 

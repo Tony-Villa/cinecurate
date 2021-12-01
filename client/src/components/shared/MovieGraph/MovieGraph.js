@@ -21,7 +21,7 @@ function MovieGraph({ title }) {
 
   useEffect(() => {
     const fetchStats = async () => {
-      const res = await fetch(`http://localhost:3737/v1/reviews/avgrating/${params.id}`);
+      const res = await fetch(`https://api-cinecurate.herokuapp.com/v1/reviews/avgrating/${params.id}`);
       const parseRes = await res.json();
       const ratingData = parseRes.avgRatings;
 

@@ -11,7 +11,7 @@ const ShowMovie = () => {
   const params = useParams();
 
   const getMovie = async () => {
-    const res = await fetch(`http://localhost:3737/v1/movies/${params.id}`);
+    const res = await fetch(`https://api-cinecurate.herokuapp.com/v1/movies/${params.id}`);
     const parsedRes = await res.json();
     const data = parsedRes.movie;
 

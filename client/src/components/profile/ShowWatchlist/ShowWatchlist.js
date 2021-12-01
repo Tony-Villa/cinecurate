@@ -8,7 +8,7 @@ const ShowWatchlist = () => {
 
   const getWatchlistSet = async () => {
     try {
-      const res = await fetch(`http://localhost:3737/v1/wishlist/${params.user_id}`);
+      const res = await fetch(`https://api-cinecurate.herokuapp.com/v1/wishlist/${params.user_id}`);
       const parsedRes = await res.json();
 
       const data = parsedRes.wishlist;
@@ -21,7 +21,7 @@ const ShowWatchlist = () => {
 
   const deleteWatchlistItem = async (id) => {
     try {
-      const res = await fetch(`http://localhost:3737/v1/wishlist/${id}`, {
+      const res = await fetch(`https://api-cinecurate.herokuapp.com/v1/wishlist/${id}`, {
         method: 'DELETE',
       });
       const parsedRes = await res.json();

@@ -25,7 +25,7 @@ function Reviews({ id, title }) {
   const params = useParams();
 
   const getReviews = async () => {
-    const res = await fetch(`http://localhost:3737/v1/reviews/${params.id}/${activeCategory}`);
+    const res = await fetch(`https://api-cinecurate.herokuapp.com/v1/reviews/${params.id}/${activeCategory}`);
     const parseRes = await res.json();
     const data = parseRes.reviews;
 
