@@ -14,6 +14,9 @@ const register = async (req, res) => {
     const userEmail = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
     const userNameCheck = await pool.query('SELECT * FROM users WHERE username = $1', [username]);
 
+    console.log(userEmail);
+    console.log(userNameCheck);
+
     if (userEmail.rows.length != 0) {
       return res.status(401).send('This email already exists');
     }
@@ -34,8 +37,12 @@ const register = async (req, res) => {
       [username, email, hashedPass, first_name]
     );
 
+    console.log(newUser);
+
     // gen jwt
     const token = jwtGenerator(newUser.rows[0].id);
+
+    console.log(token);
 
     res.json({ token });
   } catch (err) {
