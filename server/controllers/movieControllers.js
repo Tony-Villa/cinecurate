@@ -60,7 +60,9 @@ const similar = async (req, res) => {
 };
 
 const credits = async (req, res) => {
-  const resp = await axios.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${apiKey}&language=en-US`);
+  const resp = await axios.get(
+    `https://api.themoviedb.org/3/movie/${req.params.movie_id}/credits?api_key=${apiKey}&language=en-US`
+  );
 
   const credits = await resp.data;
 
@@ -74,4 +76,5 @@ module.exports = {
   similar,
   top_rated,
   upcoming,
+  credits,
 };
