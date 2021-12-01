@@ -27,7 +27,7 @@ function ReviewForm({ category, title, id, handleClose }) {
     const body = { user_id, movie_id, movie_title, review_type, rating, review };
 
     try {
-      const res = await fetch(`http://localhost:3737/v1/reviews`, {
+      const res = await fetch(`https://api-cinecurate.herokuapp.com/v1/reviews`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),

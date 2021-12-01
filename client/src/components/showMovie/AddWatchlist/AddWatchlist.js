@@ -19,7 +19,7 @@ const AddWatchlist = (props) => {
     const body = { movie_title, movie_id, poster, user_id };
 
     try {
-      const res = await fetch(`http://localhost:3737/v1/wishlist`, {
+      const res = await fetch(`https://api-cinecurate.herokuapp.com/v1/wishlist`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),

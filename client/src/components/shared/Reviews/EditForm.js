@@ -28,7 +28,7 @@ const EditForm = ({ content, handleClose }) => {
     const body = { rating, review };
 
     try {
-      const res = await fetch(`http://localhost:3737/v1/reviews/${content.id}`, {
+      const res = await fetch(`https://api-cinecurate.herokuapp.com/v1/reviews/${content.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),

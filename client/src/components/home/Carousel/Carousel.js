@@ -10,7 +10,7 @@ function Carousel(props) {
 
   const getMovieSet = async () => {
     try {
-      const res = await fetch(`http://localhost:3737/v1/movies/${props.list.api}`);
+      const res = await fetch(`https://api-cinecurate.herokuapp.com/v1/movies/${props.list.api}`);
       const parsedRes = await res.json();
 
       const data = parsedRes.movies.results;

@@ -17,7 +17,7 @@ const Login = ({ setAuth, handleClose }) => {
     try {
       const body = { username, password };
 
-      const res = await fetch(`http://localhost:3737/v1/auth/login`, {
+      const res = await fetch(`https://api-cinecurate.herokuapp.com/v1/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
