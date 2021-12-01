@@ -6,7 +6,7 @@ function PosterThumb({ title, poster_path }) {
     <div className="poster">
       <img
         className="movie-poster-thumb poster__thumb"
-        src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+        src={`https://image.tmdb.org/t/p/w500${poster_path}`}
         alt={title}
       />
       <div className="poster__title-container">

@@ -11,7 +11,7 @@ function MovieInfo(props) {
     <div className="show-info flex">
       <div className="show-info__left">
         <PosterSection {...props} />
-        <CtaButtons />
+        <CtaButtons {...props} />
       </div>
       <div className="show-info__right">
         <MovieDetails {...props} />

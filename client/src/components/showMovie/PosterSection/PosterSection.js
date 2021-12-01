@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PosterSection() {
+function PosterSection(props) {
   return (
     <div>
       <h1>poster section</h1>

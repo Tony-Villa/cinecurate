@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ShowWatchlist from '../../components/profile/ShowWatchlist/ShowWatchlist';
 import UserReviews from '../../components/shared/Reviews/UserReviews';
 import './Profile.scss';
 
@@ -6,8 +7,6 @@ function Profile() {
   const [activeTab, setActiveTab] = useState('');
 
   const tabs = [{ display: 'My Reviews' }, { display: 'Watchlist' }, { display: 'Preferences' }];
-
-  console.log('hello');
 
   return (
     <div className="profile">
@@ -23,7 +22,7 @@ function Profile() {
 
       <div className="container">
         {activeTab === 'My Reviews' && <UserReviews />}
-        {activeTab === 'Watchlist' && <h1>Watchlist</h1>}
+        {activeTab === 'Watchlist' && <ShowWatchlist />}
         {activeTab === 'Preferences' && <h1>Preferences</h1>}
       </div>
     </div>
