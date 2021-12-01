@@ -10,7 +10,7 @@ function CtaButtons(props) {
   return (
     <div className="cta-container flex">
       {user?.username && <AddWatchlist {...props} />}
-      <button className="compare">Compare</button>
+      <button className="btn btn-cta-sm">Compare</button>
     </div>
   );
 }

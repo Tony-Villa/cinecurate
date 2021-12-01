@@ -59,6 +59,14 @@ const similar = async (req, res) => {
   res.status(200).json({ movies: similarMovies });
 };
 
+const credits = async (req, res) => {
+  const resp = await axios.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${apiKey}&language=en-US`);
+
+  const credits = await resp.data;
+
+  res.status(200).json({ credits });
+};
+
 module.exports = {
   show,
   search,

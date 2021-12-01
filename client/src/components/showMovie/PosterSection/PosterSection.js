@@ -1,10 +1,10 @@
 import React from 'react';
+import './PosterSection.scss';
 
-function PosterSection(props) {
+function PosterSection({ poster_path }) {
   return (
-    <div>
-      <h1>poster section</h1>
-      <p>here it is</p>
+    <div className="show-poster">
+      <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt="" className="show-poster__img " />
     </div>
   );
 }
