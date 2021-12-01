@@ -1,0 +1,17 @@
+@use '../../../scss/' as *;
+
+.show-details {
+  //   border: 1px solid coral;
+
+  &__description {
+    font-size: 1.15rem;
+  }
+
+  &__pills {
+    @include flex(row, space-between, center);
+  }
+
+  &__genres {
+    width: 55%;
+  }
+}

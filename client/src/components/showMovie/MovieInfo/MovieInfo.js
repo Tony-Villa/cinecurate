@@ -15,7 +15,7 @@ function MovieInfo(props) {
       </div>
       <div className="show-info__right">
         <MovieDetails {...props} />
-        <Cast />
+        <Cast {...props} />
       </div>
     </div>
   );

@@ -21,8 +21,6 @@ function Home() {
     },
   ];
 
-  console.log(user);
-
   return (
     <div>
       {user && <h1 className="header-font">WELCOME {user.first_name}!</h1>}
