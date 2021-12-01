@@ -29,8 +29,8 @@ function Cast({ id }) {
       </div>
 
       <div className="cast_actors">
-        <h1>cast</h1>
-        <p>casta</p>
+        <h1>casta</h1>
+        <p>cast</p>
       </div>
     </div>
   );
