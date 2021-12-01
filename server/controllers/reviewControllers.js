@@ -15,14 +15,14 @@ const showReviews = async (req, res, next) => {
   }
 };
 
-const showAllReviews = async (req, res, next) => {
+const showUserReviews = async (req, res, next) => {
   try {
-    const allReviews = await pool.query(
-      'SELECT first_name, username, movie_title, review_type, rating, review, reviews.created_at FROM reviews INNER JOIN users ON reviews.user_id = users.id WHERE movie_id = $1',
-      [req.params.movie_id]
+    const userReviews = await pool.query(
+      'SELECT reviews.id, first_name, username, movie_title, review_type, rating, review, reviews.created_at FROM reviews INNER JOIN users ON reviews.user_id = users.id WHERE user_id = $1 ORDER BY reviews.created_at DESC',
+      [req.params.user_id]
     );
 
-    res.status(200).json({ reviews: allReviews.rows });
+    res.status(200).json({ reviews: userReviews.rows });
   } catch (err) {
     console.log(err.message);
     res.status(500).send('Server Error');
@@ -100,6 +100,6 @@ module.exports = {
   create,
   edit,
   deleteReview,
-  showAllReviews,
+  showUserReviews,
   showAvgRating,
 };
