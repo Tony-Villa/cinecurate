@@ -14,6 +14,7 @@ app.use(cors());
 app.get('/', (req, res) => {
   res.send('hello');
 });
+
 app.use('/v1/movies', routes.movies);
 app.use('/v1/reviews', routes.reviews);
 app.use('/v1/wishlist', routes.wishlist);
