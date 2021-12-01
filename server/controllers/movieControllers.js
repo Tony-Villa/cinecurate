@@ -3,7 +3,7 @@ require('dotenv').config();
 
 const apiKey = process.env.APIKEY;
 
-const show = async (req, res) => {
+const show = async (req, res, next) => {
   try {
     const resp = await axios.get(
       `https://api.themoviedb.org/3/movie/${req.params.movie_id}?api_key=${apiKey}&language=en-US`
@@ -36,6 +36,20 @@ const popular = async (req, res) => {
   res.status(200).json({ movies: popularMovies });
 };
 
+const top_rated = async (req, res) => {
+  const resp = await axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`);
+  const topRatedMovies = await resp.data;
+
+  res.status(200).json({ movies: topRatedMovies });
+};
+
+const upcoming = async (req, res) => {
+  const resp = await axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US&page=1`);
+  const upcomingMovies = await resp.data;
+
+  res.status(200).json({ movies: upcomingMovies });
+};
+
 const similar = async (req, res) => {
   const resp = await axios.get(
     `https://api.themoviedb.org/3/movie/${req.params.movie_id}/similar?api_key=${apiKey}&language=en-US&page=1`
@@ -50,4 +64,6 @@ module.exports = {
   search,
   popular,
   similar,
+  top_rated,
+  upcoming,
 };

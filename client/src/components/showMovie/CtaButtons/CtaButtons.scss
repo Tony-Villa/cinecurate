@@ -1,0 +1,5 @@
+@use '../../../scss/' as *;
+
+.cta-container {
+  @include flex(column, space-around, center);
+}

@@ -1,0 +1,7 @@
+@use '../../scss/' as *;
+
+.show {
+  &__reviews {
+    @include flex(row, center, flex-start);
+  }
+}

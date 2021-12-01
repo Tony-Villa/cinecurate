@@ -1,0 +1,26 @@
+@use '../../../scss/' as *;
+
+.nav {
+  width: 100%;
+  //   border: 1px solid white;
+  padding: 0 get-spacing(15);
+
+  @include flex(row, space-between, center);
+
+  &__links {
+    //   border: 1px solid white;
+    width: 15%;
+  }
+
+  &__ul {
+    width: 100%;
+    // border: 1px solid lightblue;
+
+    @include flex(row, space-around, center);
+  }
+
+  &__li {
+    list-style-type: none;
+    color: $accentColor;
+  }
+}

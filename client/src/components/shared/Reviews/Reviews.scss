@@ -1,0 +1,28 @@
+@use '../../../scss/' as *;
+
+.review {
+  width: clamp(80%, 900px, 90%);
+
+  @include flex(row, center, flex-start);
+
+  &__container {
+    width: 100%;
+  }
+
+  &__nav {
+    @include flex(row, center, center);
+  }
+
+  &__options {
+    @include flex(row, flex-end, center);
+  }
+
+  &__post {
+    margin-right: 3rem;
+  }
+
+  &__card {
+    &__content {
+    }
+  }
+}

@@ -1,3 +1,6 @@
 module.exports = {
-  movies: require('./moviesController'),
+  movies: require('./movieControllers'),
+  users: require('./userControllers'),
+  reviews: require('./reviewControllers'),
+  wishlist: require('./wishlistController'),
 };

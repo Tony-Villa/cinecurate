@@ -1,0 +1,22 @@
+@use '../../../scss/' as *;
+
+.poster {
+  margin-left: get-size(10);
+  margin-right: get-size(10);
+  position: relative;
+  width: 10rem;
+  margin-bottom: 0.75rem;
+
+  // border: 1px solid white;
+
+  &__title-container {
+    width: 10rem;
+    position: absolute;
+    top: 0;
+    background-color: $bgColor;
+    // opacity: 35%;
+  }
+
+  &__title {
+  }
+}
