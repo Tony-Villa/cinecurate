@@ -20,6 +20,6 @@ app.use('/v1/reviews', routes.reviews);
 app.use('/v1/wishlist', routes.wishlist);
 app.use('/v1/auth', routes.users);
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log(`Server listening on port ${PORT}`);
 });
