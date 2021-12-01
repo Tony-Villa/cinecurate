@@ -8,6 +8,8 @@ const register = async (req, res) => {
   try {
     const { username, email, password, first_name } = req.body;
 
+    console.log(username, email, password, first_name);
+
     // Check if user exists (if user exists, throw error)
     const userEmail = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
     const userNameCheck = await pool.query('SELECT * FROM users WHERE username = $1', [username]);
@@ -38,7 +40,7 @@ const register = async (req, res) => {
     res.json({ token });
   } catch (err) {
     console.log(err.message);
-    res.status(500).send('Server Error');
+    res.status(500).send('Server Error :)');
   }
 };
 

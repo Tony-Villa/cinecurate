@@ -37,8 +37,10 @@ CREATE TABLE reviews (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
+
+
 -- INSERT INTO reviews (user_id, movie_id, movie_title, review_type, rating, review)
--- VALUES ('d39741c8-3e02-41ec-a3d2-6a9ba5bd2097','438631','Dune','cinematography','9','the cinematography was dope af');
+-- VALUES ('b38bc1ea-86cc-4052-a0c5-5b53c1d62026','438631','Dune','cinematography','9','the cinematography was dope af');
 
 -- INSERT INTO reviews (user_id, movie_id, movie_title, review_type, rating, review)
 -- VALUES ('f3c4e705-6622-4a3d-99bb-049dca2fbcd3','438631','Dune','cinematography','2','idk what I am talking about when it comes to cinematography');

@@ -20,6 +20,8 @@ function Register({ setAuth, handleClose }) {
     try {
       const body = { email, username, first_name, password };
 
+      console.log(body);
+
       const res = await fetch(`https://api-cinecurate.herokuapp.com/v1/auth/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -27,7 +29,13 @@ function Register({ setAuth, handleClose }) {
       });
       const parsedRes = await res.json();
 
-      localStorage.setItem('token', parsedRes.token);
+      // if (res?.body) {
+      //   console.log('has token', res);
+      // } else {
+      //   console.log('nope', res);
+      // }
+
+      localStorage.setItem('token', 'asldkjalskdj');
       setAuth(true);
       handleClose();
     } catch (err) {
