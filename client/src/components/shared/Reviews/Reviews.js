@@ -34,14 +34,14 @@ function Reviews({ id, title }) {
 
   const getActiveCategory = (active, display) => {
     let opacityNav =
-      (active === 'cinematography' && display == 'Cinematography') ||
-      (active === 'story' && display == 'Story') ||
-      (active === 'acting' && display == 'Acting') ||
-      (active === 'art' && display == 'Art/Prod Design') ||
-      (active === 'sound' && display == 'Sound/Music') ||
-      (active === 'hmu' && display == 'Hair/Make-up') ||
-      (active === 'editing' && display == 'Editing') ||
-      (active === 'vfx' && display == 'VFX')
+      (active === 'cinematography' && display === 'Cinematography') ||
+      (active === 'story' && display === 'Story') ||
+      (active === 'acting' && display === 'Acting') ||
+      (active === 'art' && display === 'Art/Prod Design') ||
+      (active === 'sound' && display === 'Sound/Music') ||
+      (active === 'hmu' && display === 'Hair/Make-up') ||
+      (active === 'editing' && display === 'Editing') ||
+      (active === 'vfx' && display === 'VFX')
         ? { opacity: '1' }
         : { opacity: '.5' };
 

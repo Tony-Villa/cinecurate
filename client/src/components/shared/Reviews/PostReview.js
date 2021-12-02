@@ -21,7 +21,7 @@ function PostReview({ category, title, movie_id }) {
     scrollToTop();
   }, [modalOpen]);
 
-  console.log(category);
+  // console.log(category);
 
   return (
     <div>

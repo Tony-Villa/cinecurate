@@ -32,7 +32,8 @@ function ReviewForm({ category, title, id, handleClose }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
       });
-      //   const parsedRes = await res.json()
+      const parsedRes = await res.json();
+
       setIsReload(!isReload);
       handleClose();
     } catch (err) {
