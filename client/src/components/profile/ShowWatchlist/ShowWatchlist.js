@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import PosterThumb from '../../shared/PosterThumb/PosterThumb';
+import './ShowWatchlist.scss';
 
 const ShowWatchlist = () => {
   const [watchlist, setWatchlist] = useState([]);
@@ -46,7 +47,7 @@ const ShowWatchlist = () => {
             <PosterThumb title={movie.movie_title} poster_path={movie.poster} />
           </div>
         </Link>
-        <button className="btn-delete" onClick={() => deleteWatchlistItem(movie.id)}>
+        <button className="btn-delete btn-danger watchlist__delete flex" onClick={() => deleteWatchlistItem(movie.id)}>
           Delete
         </button>
       </div>
@@ -55,11 +56,9 @@ const ShowWatchlist = () => {
 
   return (
     <div>
-      <h1>this is watchlist</h1>
       <div className="watchlist">
         <div className="watchlist__container flex">
           {watchlist.length ? genWatchlistSet(watchlist) : <h3>There are no movies in your watchlist.</h3>}
-          {/* <PosterThumb /> */}
         </div>
       </div>
     </div>

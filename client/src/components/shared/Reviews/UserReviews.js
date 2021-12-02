@@ -36,7 +36,7 @@ const UserReviews = () => {
     getReviews();
   }, [params.id, isReload]);
 
-  console.log(reviews[0]);
+  // console.log(reviews[0]);
 
   return (
     <div className="user-review flex">
@@ -45,8 +45,8 @@ const UserReviews = () => {
         {reviews.map((el, idx) => (
           <div key={idx} className="user-review__card mt-2">
             <div className="user-review__card__movie-info flex">
-              <h4 className="title-font text-bold ">
-                <Link style={{ textDecoration: 'none' }} to={`/movie/${el.movie_id}`}>
+              <h4 className="title-font text-bold user-review__movie-title ">
+                <Link style={{ textDecoration: 'none', color: '1c1c1c' }} to={`/movie/${el.movie_id}`}>
                   {el.movie_title}
                 </Link>{' '}
                 | {el.review_type}

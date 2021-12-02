@@ -47,6 +47,10 @@
 
     &__movie-info {
       @include flex(row, center, center);
+
+      a {
+        color: #1c1c1c;
+      }
     }
   }
 

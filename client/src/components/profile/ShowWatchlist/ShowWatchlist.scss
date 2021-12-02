@@ -1,7 +1,32 @@
 @use '../../../scss/' as *;
 
 .watchlist {
+  // border: 1px solid white;
+  // width: clamp(85%, 65rem, 90%);
+  width: 65rem;
+  height: 60rem;
+  overflow-y: auto;
+
+  @include flex(row, center, flex-start);
+
+  &__container {
+    width: 100%;
+    height: 100%;
+    padding: 2.5rem;
+    // border: 1px solid white;
+
+    border-radius: 1rem;
+    background: #1c1c1c;
+    box-shadow: inset 5px 5px 10px #161616, inset -5px -5px 10px #222222;
+  }
+
   &__item {
+    @include flex(column, center, center);
+  }
+
+  &__delete {
+    // border: 1px solid white;
+    margin: 0.4rem auto;
     @include flex(column, center, center);
   }
 }
