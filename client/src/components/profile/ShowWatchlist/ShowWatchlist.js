@@ -24,7 +24,6 @@ const ShowWatchlist = () => {
       const res = await fetch(`https://api-cinecurate.herokuapp.com/v1/wishlist/${id}`, {
         method: 'DELETE',
       });
-      const parsedRes = await res.json();
 
       setWatchlist(watchlist.filter((watch) => watch.id !== id));
     } catch (err) {

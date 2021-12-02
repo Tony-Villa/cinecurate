@@ -135,7 +135,7 @@ function MovieGraph({ title }) {
   const commonProperties = {
     width: 500,
     height: 420,
-    margin: { top: 60, right: 60, bottom: 60, left: 60 },
+    margin: { top: 60, right: 0, bottom: 60, left: 60 },
     data: data,
     maxValue: 10,
     indexBy: 'category',

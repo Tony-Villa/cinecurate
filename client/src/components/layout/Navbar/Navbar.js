@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import Modal from '../../shared/Modal/Modal';
 import Searchbar from '../Searchbar/Searchbar';
 import './Navbar.scss';

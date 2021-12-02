@@ -31,6 +31,8 @@ const MovieDetails = ({ title, overview, genres, runtime }) => {
     genRuntime(runtime);
   }, []);
 
+  console.log(formattedRuntime);
+
   return (
     <div className="show-details">
       <div className="show-details__header">
