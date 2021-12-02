@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { ReloadContext } from '../../../Context/ReloadContext';
 import PosterThumb from '../../shared/PosterThumb/PosterThumb';
 import './Similar.scss';
 
 function Similar() {
   const [similarMovies, setSimilarMovies] = useState([]);
   const params = useParams();
+  const { isReload, setIsReload } = useContext(ReloadContext);
 
   const getSimilar = async () => {
     const res = await fetch(`https://api-cinecurate.herokuapp.com/v1/movies/similar/${params.id}`);
