@@ -25,7 +25,7 @@ function PostReview({ category, title, movie_id }) {
 
   return (
     <div>
-      <div className="review">
+      <div className="review-post">
         <div className="review-post-option flex">
           <button
             className="btn btn-post  review__post-option mt-1 content-font test"

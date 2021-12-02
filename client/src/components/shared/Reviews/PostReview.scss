@@ -1,8 +1,8 @@
 @use '../../../scss/' as *;
 
-.review {
-  min-width: 12rem;
-  min-height: 12rem;
+.review-post {
+  // min-width: 12rem;
+  // min-height: 12rem;
 
   @include flex(column, center, center);
 
@@ -20,7 +20,7 @@
 
 .review-header-title {
   //   border: 1px solid coral;
-  min-height: 3rem;
+  // min-height: 3rem;
   width: 12rem;
   @include flex(column, center, center);
 }
