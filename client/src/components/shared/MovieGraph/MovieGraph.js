@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Radar } from '@nivo/radar';
+import { Radar, ResponsiveRadar } from '@nivo/radar';
 import { useParams } from 'react-router-dom';
 import './MovieGraph.scss';
 import { ReloadContext } from '../../../Context/ReloadContext';
@@ -135,7 +135,7 @@ function MovieGraph({ title }) {
   const commonProperties = {
     width: 500,
     height: 420,
-    margin: { top: 60, right: 0, bottom: 60, left: 60 },
+    margin: { top: 60, right: 0, bottom: 60, left: 10 },
     data: data,
     maxValue: 10,
     indexBy: 'category',
@@ -163,7 +163,7 @@ function MovieGraph({ title }) {
           {
             anchor: 'top-left',
             direction: 'column',
-            translateX: -50,
+            translateX: 0,
             translateY: -40,
             itemWidth: 80,
             itemHeight: 20,
