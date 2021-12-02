@@ -69,6 +69,16 @@ const credits = async (req, res) => {
   res.status(200).json({ credits });
 };
 
+const trailer = async (req, res) => {
+  const resp = await axios.get(
+    `https://api.themoviedb.org/3/movie/${req.params.movie_id}/videos?api_key=${apiKey}&language=en-US`
+  );
+
+  const trailers = await resp.data;
+
+  res.status(200).json({ trailers });
+};
+
 module.exports = {
   show,
   search,
@@ -77,4 +87,5 @@ module.exports = {
   top_rated,
   upcoming,
   credits,
+  trailer,
 };
