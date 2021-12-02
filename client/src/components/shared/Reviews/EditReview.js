@@ -2,6 +2,8 @@ import { AnimatePresence } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 import Modal from '../Modal/Modal';
 import EditForm from './EditForm';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit } from '@fortawesome/free-regular-svg-icons';
 
 const EditReview = ({ content }) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -15,8 +17,8 @@ const EditReview = ({ content }) => {
 
   return (
     <div>
-      <button className="review__edit" onClick={() => (modalOpen ? close() : open())}>
-        edit
+      <button className="btn review__edit" onClick={() => (modalOpen ? close() : open())}>
+        <FontAwesomeIcon icon={faEdit} size="lg" style={{ color: '#4A54EB' }} />
       </button>
 
       <AnimatePresence initial={false} exitBeforeEnter={true}>

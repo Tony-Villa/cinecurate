@@ -37,7 +37,7 @@ const Login = ({ setAuth, handleClose }) => {
 
   return (
     <div className="login">
-      <h1>login</h1>
+      <h1 className="header-font">Login</h1>
       <form className="flex login__form" onSubmit={onSubmitForm} autoComplete="off">
         <input
           className="input-auth"
@@ -56,7 +56,7 @@ const Login = ({ setAuth, handleClose }) => {
           onChange={(e) => onChange(e)}
         />
 
-        <button className="btn-cta login__submit">Submit</button>
+        <button className="btn-search login__submit">Submit</button>
       </form>
     </div>
   );

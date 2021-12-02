@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { ReloadContext } from '../../../../Context/ReloadContext';
 import { UserContext } from '../../../../Context/UserContext';
+import './ReviewForm.scss';
 
 function ReviewForm({ category, title, id, handleClose }) {
   const { user } = useContext(UserContext);
@@ -42,8 +43,8 @@ function ReviewForm({ category, title, id, handleClose }) {
   };
 
   return (
-    <div>
-      <form onSubmit={onSubmitForm} autoComplete="off">
+    <div className="review-form">
+      <form className="review-form__form flex" onSubmit={onSubmitForm} autoComplete="off">
         <input
           className="input-form"
           type="hidden"
@@ -87,15 +88,17 @@ function ReviewForm({ category, title, id, handleClose }) {
           onChange={(e) => onChange(e)}
         />
         <textarea
-          className="input-form"
+          className="input-form mt-1"
           type="text"
           name="review"
           placeholder="review"
+          cols="30"
+          rows="5"
           value={review}
           onChange={(e) => onChange(e)}
         />
 
-        <button className="btn submit">Submit</button>
+        <button className="btn submit btn-search mt-1">Submit</button>
       </form>
     </div>
   );

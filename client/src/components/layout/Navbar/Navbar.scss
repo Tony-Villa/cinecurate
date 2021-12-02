@@ -8,6 +8,21 @@
 
   @include flex(row, space-between, center);
 
+  a {
+    color: white;
+    text-decoration: none;
+    background-image: $accentColor;
+    background-size: 0% 3px;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    text-decoration: none;
+    transition: background-size 300ms ease;
+
+    &:hover {
+      background-size: 100% 3px;
+    }
+  }
+
   &__logo {
     height: 100%;
     width: 15%;

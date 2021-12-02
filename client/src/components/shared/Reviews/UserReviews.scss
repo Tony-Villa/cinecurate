@@ -22,7 +22,7 @@
     @include flex(row, center, center);
   }
 
-  &__options {
+  &__user-options {
     // margin-bottom: -3rem;
     @include flex(row, flex-end, center);
   }
@@ -38,6 +38,7 @@
     background: #bfbfbf;
     min-width: 45%;
     max-width: 65%;
+    margin: 1rem auto;
 
     box-shadow: 5px 5px 10px #161616, -5px -5px 10px #222222;
 
@@ -47,6 +48,10 @@
 
     &__movie-info {
       @include flex(row, center, center);
+
+      a {
+        color: #1c1c1c;
+      }
     }
   }
 

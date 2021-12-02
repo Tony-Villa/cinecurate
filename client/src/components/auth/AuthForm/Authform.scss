@@ -1,10 +1,15 @@
 @use '../../../scss/' as *;
 
 .auth-form {
-  height: 80%;
+  height: 100%;
 
-  &__swap {
+  &__swap-options {
     // border: 1px solid white;
+    margin: 0 auto;
     @include flex(row, center, center);
+  }
+
+  &__swap-btn {
+    margin-left: 1rem;
   }
 }

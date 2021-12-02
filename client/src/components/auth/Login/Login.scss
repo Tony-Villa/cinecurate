@@ -1,12 +1,12 @@
 @use '../../../scss/' as *;
 
 .login {
-  height: 100%;
+  height: 80%;
 
   &__form {
     height: 80%;
 
-    @include flex(column, space-between, center);
+    @include flex(column, space-evenly, center);
   }
 
   &__submit {

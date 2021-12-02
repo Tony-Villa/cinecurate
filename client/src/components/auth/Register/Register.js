@@ -39,7 +39,7 @@ function Register({ setAuth, handleClose }) {
 
   return (
     <div className="register">
-      <h1>Register</h1>
+      <h1 className="header-font">Register</h1>
       <form className="flex register__form" onSubmit={onSubmitForm} autoComplete="off">
         <input
           className="input-auth"
@@ -74,7 +74,7 @@ function Register({ setAuth, handleClose }) {
           onChange={(e) => onChange(e)}
         />
 
-        <button className="btn-cta submit">Submit</button>
+        <button className="mt-1 btn-search submit">Submit</button>
       </form>
     </div>
   );

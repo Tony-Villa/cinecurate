@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Backdrop from '../Backdrop/Backdrop';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import './Modal.scss';
 
 function Modal({ handleClose, text }) {
@@ -36,8 +38,8 @@ function Modal({ handleClose, text }) {
         exit="exit"
       >
         <div className="modal__content">{text}</div>
-        <button className="mt-5 btn-cta" onClick={handleClose}>
-          Close
+        <button className=" btn-cta modal__close" onClick={handleClose}>
+          <FontAwesomeIcon icon={faTimes} />
         </button>
       </motion.div>
     </Backdrop>
