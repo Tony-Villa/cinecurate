@@ -2,6 +2,7 @@ import { AnimatePresence } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 import ReviewForm from '../Forms/ReviewForm/ReviewForm';
 import Modal from '../Modal/Modal';
+import './PostReview.scss';
 
 function PostReview({ category, title, movie_id }) {
   const [modalOpen, setModalOpen] = useState(false);
@@ -20,13 +21,16 @@ function PostReview({ category, title, movie_id }) {
     scrollToTop();
   }, [modalOpen]);
 
+  console.log(category);
+
   return (
     <div>
-      <div className="review">
-        <h3>
-          Review {title}'s {category}
-        </h3>
-        <button className="review__post" onClick={() => (modalOpen ? close() : open())}>
+      <div className="review flex">
+        <h3 className="text-center header-font">Review {category}</h3>
+        <button
+          className="btn btn-post  review__post-option mt-1 content-font test"
+          onClick={() => (modalOpen ? close() : open())}
+        >
           +
         </button>
       </div>

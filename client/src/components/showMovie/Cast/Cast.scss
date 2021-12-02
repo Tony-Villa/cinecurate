@@ -1,1 +1,47 @@
 @use '../../../scss/' as *;
+
+.cast {
+  &__director {
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      color: #ffffff;
+      background-color: #ffffff;
+      height: 1px;
+      width: 60%;
+      position: absolute;
+      top: -0.5rem;
+      margin-left: 0.25rem;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      color: #ffffff;
+      background-color: #ffffff;
+      height: 1px;
+      width: 60%;
+      position: absolute;
+      bottom: -0.5rem;
+      margin-left: 0.25rem;
+    }
+  }
+
+  &__writer {
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      color: #ffffff;
+      background-color: #ffffff;
+      height: 1px;
+      width: 60%;
+      position: absolute;
+      bottom: -0.5rem;
+      margin-left: 0.25rem;
+    }
+  }
+}

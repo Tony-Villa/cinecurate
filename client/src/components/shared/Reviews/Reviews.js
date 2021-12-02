@@ -46,15 +46,15 @@ function Reviews({ id, title }) {
   }, [activeCategory, params.id, isReload]);
 
   return (
-    <div className="review flex">
+    <div className="review flex mt-2">
       <div className="review__container">
-        <h1 className="header-font">What other cinephiles thought:</h1>
+        <h1 className="header-font text-center mb-1">What other cinephiles thought:</h1>
         <div className="review__nav flex">
           {categories.map((el, idx) => (
             <button
               style={getActiveCategory(activeCategory, el.display)}
               key={idx}
-              className="btn-category cateogory-link"
+              className="btn btn-category  content-font cateogory-link"
               onClick={() => setActiveCategory(el.enum)}
             >
               {el.display}

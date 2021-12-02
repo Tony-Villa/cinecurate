@@ -1,0 +1,16 @@
+@use '../../../scss/' as *;
+
+.review {
+  min-width: 12rem;
+  min-height: 12rem;
+
+  @include flex(column, center, center);
+
+  &____post-option {
+    font-size: get-size(9);
+  }
+}
+
+.test {
+  font-size: get-size(9);
+}

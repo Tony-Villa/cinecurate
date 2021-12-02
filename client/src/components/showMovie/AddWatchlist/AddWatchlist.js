@@ -30,7 +30,7 @@ const AddWatchlist = (props) => {
   };
 
   return (
-    <button onClick={(e) => addMovie(e)} className="btn btn-cta">
+    <button onClick={(e) => addMovie(e)} className="btn btn-cta content-font">
       Add to Watchlist
     </button>
   );

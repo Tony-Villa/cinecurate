@@ -1,0 +1,33 @@
+@use '../../../scss/' as *;
+
+.cast-thumb {
+  position: relative;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+
+  overflow-y: hidden;
+
+  &__img {
+    border-radius: 0.5rem;
+    height: 12rem;
+  }
+
+  &__title-container {
+    position: absolute;
+    bottom: -4.5rem;
+    height: 37%;
+    width: 100%;
+
+    border-radius: 0.5rem;
+    background-color: #1c1c1cd1;
+
+    &:hover {
+      bottom: 0;
+    }
+  }
+
+  &__bg {
+    height: 37%;
+    width: 100%;
+  }
+}

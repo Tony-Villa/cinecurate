@@ -1,3 +1,5 @@
+@use '../abstracts/' as *;
+
 .btn {
   color: white;
   background: none;
@@ -9,4 +11,73 @@
 .btn-link {
   color: white;
   text-decoration: none;
+}
+
+.btn-post {
+  height: 3.25rem;
+  width: 3.25rem;
+  border-radius: 100%;
+  // background: linear-gradient(145deg, #ff2592, #b91964);
+  // outline: 2px solid #ff2592;
+
+  // background: linear-gradient(145deg, #cd1c6f, #f42184);
+  background: #e41f7b;
+  box-shadow: 7px 7px 14px #161616, -7px -7px 14px #222222;
+
+  // box-shadow: inset 9.91px 9.91px 15px #cf1c70, inset -9.91px -9.91px 15px #f92286;
+
+  // border-radius: 50%;
+  // box-shadow: 5px 5px 10px #161616, inset -5px -5px 10px #222222;
+}
+
+.btn-pill-pink {
+  text-decoration: none;
+  outline: 2px solid $accentColor;
+
+  background-color: $bgColor;
+  border: none;
+  color: $textColor;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+
+.btn-pill-white {
+  text-decoration: none;
+  outline: 2px solid $textColor;
+
+  background-color: $bgColor;
+  border: none;
+  color: $textColor;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+
+.btn-cta {
+  text-decoration: none;
+  outline: 2px solid $accentColor;
+
+  background-color: $bgColor;
+  border: none;
+  color: $textColor;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 0.25rem;
+
+  &:hover {
+    background-color: #332f2e;
+  }
 }

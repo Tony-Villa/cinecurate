@@ -1,5 +1,12 @@
 @use '../../../scss/' as *;
 
-.cta-container {
+.cta {
+  margin-left: 6rem;
+  margin-top: 1rem;
+
   @include flex(column, space-around, center);
+
+  &__option {
+    margin-bottom: 0.5rem;
+  }
 }
