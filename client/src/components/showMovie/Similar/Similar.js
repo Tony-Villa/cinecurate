@@ -7,7 +7,6 @@ import './Similar.scss';
 function Similar() {
   const [similarMovies, setSimilarMovies] = useState([]);
   const params = useParams();
-  const { isReload, setIsReload } = useContext(ReloadContext);
 
   const getSimilar = async () => {
     const res = await fetch(`https://api-cinecurate.herokuapp.com/v1/movies/similar/${params.id}`);

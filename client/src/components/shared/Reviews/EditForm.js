@@ -1,6 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { ReloadContext } from '../../../Context/ReloadContext';
 import { UserContext } from '../../../Context/UserContext';
+import '../../shared/Forms/ReviewForm/ReviewForm.scss';
 
 const EditForm = ({ content, handleClose }) => {
   const { user } = useContext(UserContext);
@@ -45,40 +46,8 @@ const EditForm = ({ content, handleClose }) => {
 
   return (
     <div>
-      <h1>{review.review}</h1>
-      <form onSubmit={onSubmitForm} autoComplete="off">
-        {/* <input
-          className="input-form"
-          type="hidden"
-          name="user_id"
-          placeholder="user_id"
-          value={user_id}
-          onChange={(e) => onChange(e)}
-        />
-        <input
-          className="input-form"
-          type="hidden"
-          name="movie_id"
-          placeholder="movie_id"
-          value={movie_id}
-          onChange={(e) => onChange(e)}
-        />
-        <input
-          className="input-form"
-          type="hidden"
-          name="movie_title"
-          placeholder="movie_title"
-          value={movie_title}
-          onChange={(e) => onChange(e)}
-        />
-        <input
-          className="input-form"
-          type="hidden"
-          name="review_type"
-          placeholder="review_type"
-          value={review_type}
-          onChange={(e) => onChange(e)}
-        /> */}
+      <h1 class="review-form">{review.review}</h1>
+      <form class="review-form__form flex" onSubmit={onSubmitForm} autoComplete="off">
         <input
           className="input-form"
           type="number"
@@ -90,15 +59,17 @@ const EditForm = ({ content, handleClose }) => {
           onChange={(e) => onChange(e)}
         />
         <textarea
-          className="input-form"
+          className="input-form mt-1"
           type="text"
           name="review"
           placeholder="review"
+          cols="30"
+          rows="5"
           value={review}
           onChange={(e) => onChange(e)}
         />
 
-        <button className="btn submit">Submit</button>
+        <button className="btn-search submit mt-1 mb-1">Submit</button>
       </form>
     </div>
   );

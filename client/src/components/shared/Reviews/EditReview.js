@@ -14,6 +14,13 @@ const EditReview = ({ content }) => {
   //   console.log('hello');
 
   //   return <button onClick={() => console.log(`hi ${review.review}`)}>hi</button>;
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
+  useEffect(() => {
+    scrollToTop();
+  }, [modalOpen]);
 
   return (
     <div>
