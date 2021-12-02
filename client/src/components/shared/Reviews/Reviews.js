@@ -34,7 +34,14 @@ function Reviews({ id, title }) {
 
   const getActiveCategory = (active, display) => {
     let opacityNav =
-      (active === 'cinematography' && display == 'Cinematography') || (active === 'story' && display == 'Story')
+      (active === 'cinematography' && display == 'Cinematography') ||
+      (active === 'story' && display == 'Story') ||
+      (active === 'acting' && display == 'Acting') ||
+      (active === 'art' && display == 'Art/Prod Design') ||
+      (active === 'sound' && display == 'Sound/Music') ||
+      (active === 'hmu' && display == 'Hair/Make-up') ||
+      (active === 'editing' && display == 'Editing') ||
+      (active === 'vfx' && display == 'VFX')
         ? { opacity: '1' }
         : { opacity: '.5' };
 
@@ -46,22 +53,22 @@ function Reviews({ id, title }) {
   }, [activeCategory, params.id, isReload]);
 
   return (
-    <div className="review flex">
+    <div className="review flex mt-2">
       <div className="review__container">
-        <h1 className="header-font">What other cinephiles thought:</h1>
+        <h1 className="header-font text-center mb-1">What other cinephiles thought:</h1>
         <div className="review__nav flex">
           {categories.map((el, idx) => (
             <button
               style={getActiveCategory(activeCategory, el.display)}
               key={idx}
-              className="btn-category cateogory-link"
+              className="btn btn-category  content-font cateogory-link"
               onClick={() => setActiveCategory(el.enum)}
             >
               {el.display}
             </button>
           ))}
         </div>
-        <div className="review__options flex">
+        <div className="review__options mr-1 flex">
           <PostReview title={title} movie_id={id} category={activeCategory} />
         </div>
         {reviews.map((el, idx) => (

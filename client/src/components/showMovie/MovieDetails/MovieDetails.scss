@@ -2,6 +2,24 @@
 
 .show-details {
   //   border: 1px solid coral;
+  margin-bottom: 1.5rem;
+
+  &__header {
+    margin-bottom: 0.5rem;
+
+    &::after {
+      content: '';
+      display: block;
+      color: #ffffff;
+      background-color: #ffffff;
+      height: 1px;
+      width: 100%;
+    }
+  }
+
+  &__header-content {
+    @include flex(row, space-between, center);
+  }
 
   &__description {
     font-size: 1.15rem;

@@ -8,9 +8,9 @@ function CtaButtons(props) {
   // const [isUser, setIsUser] = useState(user);
 
   return (
-    <div className="cta-container flex">
-      {user?.username && <AddWatchlist {...props} />}
-      <button className="btn btn-cta-sm">Compare</button>
+    <div className=" cta cta-container flex">
+      <div className="cta__option">{user?.username && <AddWatchlist {...props} />}</div>
+      <button className="btn btn-cta  content-font">Compare</button>
     </div>
   );
 }

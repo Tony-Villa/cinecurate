@@ -1,7 +1,7 @@
 import React from 'react';
 import './PosterThumb.scss';
 
-function PosterThumb({ title, poster_path }) {
+const PosterThumb = ({ title, poster_path }) => {
   return (
     <div className="poster">
       <img
@@ -14,6 +14,6 @@ function PosterThumb({ title, poster_path }) {
       </div>
     </div>
   );
-}
+};
 
 export default PosterThumb;
