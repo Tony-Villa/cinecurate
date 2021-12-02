@@ -3,7 +3,8 @@
 .modal {
   position: relative;
   width: clamp(30%, 900px, 90%);
-  height: min(60%, 800px);
+  // height: min(60%, 800px);
+  height: fit-content;
 
   margin: auto;
   padding: 0, 2rem;
