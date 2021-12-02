@@ -9,6 +9,7 @@ import './ShowMovie.scss';
 const ShowMovie = () => {
   const [movie, setMovie] = useState({});
   const params = useParams();
+  const [formattedRuntime, setFormattedRuntime] = useState('');
 
   const getMovie = async () => {
     const res = await fetch(`https://api-cinecurate.herokuapp.com/v1/movies/${params.id}`);
@@ -18,15 +19,25 @@ const ShowMovie = () => {
     setMovie(data);
   };
 
+  const genRuntime = (time) => {
+    const hours = Math.floor(time / 60);
+    const mins = time % 60;
+
+    setFormattedRuntime(`${hours}h ${mins}m`);
+  };
+
   useEffect(() => {
     getMovie();
+    genRuntime(movie.runtime);
     window.scrollTo(0, 0);
   }, [params.id]);
+
+  console.log(formattedRuntime);
 
   return (
     <div className="show">
       <div className="show__top">
-        <MovieSection {...movie} />
+        <MovieSection {...movie} length={formattedRuntime} />
       </div>
       <div className="show__bottom flex">
         <div className="show__reviews flex three-quarters">

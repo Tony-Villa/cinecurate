@@ -5,19 +5,11 @@ import Modal from '../../shared/Modal/Modal';
 import PlayTrailer from '../PlayTrailer/PlayTrailer';
 import './MovieDetails.scss';
 
-const MovieDetails = ({ title, overview, genres, runtime }) => {
-  const [formattedRuntime, setFormattedRuntime] = useState('');
+const MovieDetails = ({ title, overview, genres, length }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const close = () => setModalOpen(false);
   const open = () => setModalOpen(true);
-
-  const genRuntime = (time) => {
-    const hours = Math.floor(time / 60);
-    const mins = time % 60;
-
-    setFormattedRuntime(`${hours}h ${mins}m`);
-  };
 
   const genGenrePills = (genre) => {
     return genre.map((el, idx) => (
@@ -27,18 +19,18 @@ const MovieDetails = ({ title, overview, genres, runtime }) => {
     ));
   };
 
-  useEffect(() => {
-    genRuntime(runtime);
-  }, []);
+  // useEffect(() => {
+  //   genRuntime(runtime);
+  // }, []);
 
-  console.log(formattedRuntime);
+  // console.log(formattedRuntime);
 
   return (
     <div className="show-details">
       <div className="show-details__header">
         <div className="show-details__header-content flex">
           <h2 className="show-details__title title-font">{title}</h2>
-          <p className="content-font">{runtime && formattedRuntime}</p>
+          {length !== 'NaNh NaNm' && <p className="content-font">{length}</p>}
         </div>
       </div>
       <p className="show-details__description content-font ">{overview}</p>

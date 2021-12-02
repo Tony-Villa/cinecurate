@@ -4,14 +4,18 @@ import MovieInfo from '../MovieInfo/MovieInfo';
 import './MovieSection.scss';
 
 function MovieSection(props) {
+  console.log(props);
+
   return (
     <div className="movie-section flex mt-2 mb-4">
       <div className="movie-section__img-mask"></div>
-      <img
-        className="movie-section__backdrop"
-        src={`https://image.tmdb.org/t/p/original/${props.backdrop_path}`}
-        alt={`${props.title} backdrop`}
-      />
+      {props && (
+        <img
+          className="movie-section__backdrop"
+          src={`https://image.tmdb.org/t/p/original/${props.backdrop_path}`}
+          alt={`${props.title} backdrop`}
+        />
+      )}
       <div className="movie-section__info">
         <MovieInfo {...props} />
       </div>
