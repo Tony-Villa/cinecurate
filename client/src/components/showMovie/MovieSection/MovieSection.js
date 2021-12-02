@@ -5,7 +5,7 @@ import './MovieSection.scss';
 
 function MovieSection(props) {
   return (
-    <div className="movie-section flex mt-3">
+    <div className="movie-section flex mt-2 mb-4">
       <div className="movie-section__img-mask"></div>
       <img
         className="movie-section__backdrop"

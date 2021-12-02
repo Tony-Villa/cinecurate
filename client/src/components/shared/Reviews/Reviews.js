@@ -34,7 +34,14 @@ function Reviews({ id, title }) {
 
   const getActiveCategory = (active, display) => {
     let opacityNav =
-      (active === 'cinematography' && display == 'Cinematography') || (active === 'story' && display == 'Story')
+      (active === 'cinematography' && display == 'Cinematography') ||
+      (active === 'story' && display == 'Story') ||
+      (active === 'acting' && display == 'Acting') ||
+      (active === 'art' && display == 'Art/Prod Design') ||
+      (active === 'sound' && display == 'Sound/Music') ||
+      (active === 'hmu' && display == 'Hair/Make-up') ||
+      (active === 'editing' && display == 'Editing') ||
+      (active === 'vfx' && display == 'VFX')
         ? { opacity: '1' }
         : { opacity: '.5' };
 
@@ -61,7 +68,7 @@ function Reviews({ id, title }) {
             </button>
           ))}
         </div>
-        <div className="review__options flex">
+        <div className="review__options mr-1 flex">
           <PostReview title={title} movie_id={id} category={activeCategory} />
         </div>
         {reviews.map((el, idx) => (

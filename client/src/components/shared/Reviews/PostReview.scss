@@ -11,6 +11,16 @@
   }
 }
 
-.test {
-  font-size: get-size(9);
+.review-post-option {
+  //   border: 1px solid yellow;
+  min-height: 5rem;
+  min-width: 5rem;
+  @include flex(column, center, center);
+}
+
+.review-header-title {
+  //   border: 1px solid coral;
+  min-height: 3rem;
+  width: 12rem;
+  @include flex(column, center, center);
 }

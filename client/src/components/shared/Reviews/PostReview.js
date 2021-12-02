@@ -25,14 +25,18 @@ function PostReview({ category, title, movie_id }) {
 
   return (
     <div>
-      <div className="review flex">
-        <h3 className="text-center header-font">Review {category}</h3>
-        <button
-          className="btn btn-post  review__post-option mt-1 content-font test"
-          onClick={() => (modalOpen ? close() : open())}
-        >
-          +
-        </button>
+      <div className="review">
+        <div className="review-post-option flex">
+          <button
+            className="btn btn-post  review__post-option mt-1 content-font test"
+            onClick={() => (modalOpen ? close() : open())}
+          >
+            +
+          </button>
+        </div>
+        <div className="review-header-title">
+          <h3 className="text-center header-font option-title">Review {category}</h3>
+        </div>
       </div>
 
       <AnimatePresence initial={false} exitBeforeEnter={true}>

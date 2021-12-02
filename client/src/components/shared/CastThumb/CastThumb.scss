@@ -9,7 +9,7 @@
 
   &__img {
     border-radius: 0.5rem;
-    height: 12rem;
+    height: clamp(6rem, 12rem, 12rem);
   }
 
   &__title-container {
@@ -21,13 +21,15 @@
     border-radius: 0.5rem;
     background-color: #1c1c1cd1;
 
-    &:hover {
-      bottom: 0;
-    }
+    transition: 0.5s ease;
   }
 
   &__bg {
     height: 37%;
     width: 100%;
   }
+}
+
+.cast-thumb:hover .cast-thumb__title-container {
+  bottom: 0;
 }
