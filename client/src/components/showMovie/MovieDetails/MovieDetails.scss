@@ -23,6 +23,8 @@
 
   &__description {
     font-size: 1.15rem;
+    max-height: 11.5rem;
+    overflow-y: auto;
   }
 
   &__pills {
