@@ -22,6 +22,7 @@ function Searchbar() {
       const data = parseResp.movie.results;
       const maxPage = parseResp.movie.total_pages;
 
+      setQuery('');
       navigate('/browse', { state: { query, data, maxPage } });
     } catch (err) {
       console.error(err.message);
