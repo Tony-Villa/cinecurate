@@ -46,7 +46,7 @@ const BrowseMovies = () => {
     <div>
       <div className="query-results">
         <div className="query-results__container ">
-          <h1 className="header-font mb-1">Search Results for {query}</h1>
+          <h1 className="header-font mb-1">Search Results for {query} </h1>
           <div className="query-results__items ml-3 flex">
             {searchResults ? genMovieSet(searchResults) : <h1>No movies found.</h1>}
           </div>

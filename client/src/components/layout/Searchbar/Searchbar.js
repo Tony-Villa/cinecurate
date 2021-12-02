@@ -40,7 +40,7 @@ function Searchbar() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <button className="confirm-search btn-search">btn</button>
+        <button className="confirm-search btn-search btn-search__inside">Search</button>
       </form>
     </div>
   );

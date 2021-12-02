@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Carousel from '../../components/home/Carousel/Carousel';
 import { UserContext } from '../../Context/UserContext';
+import './Home.scss';
 
 function Home() {
   const { user } = useContext(UserContext);
@@ -22,8 +23,8 @@ function Home() {
   ];
 
   return (
-    <div>
-      {user && <h1 className="header-font">WELCOME {user.first_name}!</h1>}
+    <div className="home">
+      <div className="home__welcome">{user && <h1 className="header-font">WELCOME {user.first_name}!</h1>}</div>
 
       <Carousel list={carouselOptions[0]} />
       <Carousel list={carouselOptions[1]} />

@@ -2,4 +2,9 @@
 
 .auth-form {
   height: 80%;
+
+  &__swap {
+    // border: 1px solid white;
+    @include flex(row, center, center);
+  }
 }

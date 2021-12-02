@@ -36,7 +36,9 @@ function Modal({ handleClose, text }) {
         exit="exit"
       >
         <div className="modal__content">{text}</div>
-        <button onClick={handleClose}>Close</button>
+        <button className="mt-5 btn-cta" onClick={handleClose}>
+          Close
+        </button>
       </motion.div>
     </Backdrop>
   );
