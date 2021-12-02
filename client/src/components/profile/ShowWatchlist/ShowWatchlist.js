@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import PosterThumb from '../../shared/PosterThumb/PosterThumb';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import './ShowWatchlist.scss';
 
 const ShowWatchlist = () => {
@@ -47,8 +49,11 @@ const ShowWatchlist = () => {
             <PosterThumb title={movie.movie_title} poster_path={movie.poster} />
           </div>
         </Link>
-        <button className="btn-delete btn-danger watchlist__delete flex" onClick={() => deleteWatchlistItem(movie.id)}>
-          Delete
+        <button
+          className="btn btn-delete btn-danger watchlist__delete flex"
+          onClick={() => deleteWatchlistItem(movie.id)}
+        >
+          <FontAwesomeIcon icon={faTrashAlt} size="lg" style={{ color: 'red' }} />
         </button>
       </div>
     ));

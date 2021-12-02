@@ -4,6 +4,8 @@ import { Link, useParams } from 'react-router-dom';
 import { ReloadContext } from '../../../Context/ReloadContext';
 import Modal from '../Modal/Modal';
 import EditReview from './EditReview';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import './UserReviews.scss';
 
 const UserReviews = () => {
@@ -41,7 +43,7 @@ const UserReviews = () => {
   return (
     <div className="user-review flex">
       <div className="user-review__container">
-        <h1>Your reviews:</h1>
+        <h1 className="header-font">Your reviews:</h1>
         {reviews.map((el, idx) => (
           <div key={idx} className="user-review__card mt-2">
             <div className="user-review__card__movie-info flex">
@@ -52,17 +54,17 @@ const UserReviews = () => {
                 | {el.review_type}
               </h4>
             </div>
-            <div className="user-review__card__author-info">
+            <div className="user-review__card__author-info flex">
               <h4 className="content-font">{el.first_name}</h4>
+              <h4 className="title-font">Rating: {el.rating}</h4>
             </div>
             <div className="user-review__card__content">
-              <h4 className="title-font">Rating: {el.rating}</h4>
               <p className="content-font"> {el.review} </p>
             </div>
             <div className="user-review__user-options flex">
               <EditReview className="btn-edit" content={el} />
-              <button className="btn-delete" onClick={() => deleteReview(el.id)}>
-                delete
+              <button className=" btn btn-delete" onClick={() => deleteReview(el.id)}>
+                <FontAwesomeIcon icon={faTrashAlt} size="lg" style={{ color: 'red' }} />
               </button>
             </div>
           </div>

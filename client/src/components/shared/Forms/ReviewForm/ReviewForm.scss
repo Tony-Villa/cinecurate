@@ -1,0 +1,7 @@
+@use '../../../../scss/' as *;
+
+.review-form {
+  &__form {
+    @include flex(column, center, space-evenly);
+  }
+}

@@ -1,21 +1,22 @@
 @use '../abstracts/' as *;
 @use '../base/' as *;
 
+// input {
+//   height: 34px;
+//   width: 100%;
+//   border-radius: 3px;
+//   border: 1px solid transparent;
+//   border-top: none;
+//   border-bottom: 1px solid #1c1c1c;
+//   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.39), 0 -1px 1px #fff, 0 1px 0 #fff;
+//   padding: 0.5rem;
+
+//   font-family: $contentFont;
+// }
+
 input {
-  height: 34px;
-  width: 100%;
-  border-radius: 3px;
-  border: 1px solid transparent;
-  border-top: none;
-  border-bottom: 1px solid #1c1c1c;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.39), 0 -1px 1px #fff, 0 1px 0 #fff;
-  padding: 0.5rem;
-
-  font-family: $contentFont;
-}
-
-.search-movie {
   width: 360px;
+  height: 2rem;
   background: #fff;
   color: $bgColor;
   font: $contentFont;
@@ -25,3 +26,15 @@ input {
   padding: 22px 18px;
   z-index: 1;
 }
+
+// .search-movie {
+//   width: 360px;
+//   background: #fff;
+//   color: $bgColor;
+//   font: $contentFont;
+//   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+//   border: 0;
+//   outline: 0;
+//   // padding: 22px 18px;
+//   z-index: 1;
+// }

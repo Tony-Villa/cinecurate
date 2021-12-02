@@ -1,6 +1,7 @@
 @use '../../../scss/' as *;
 
 .modal {
+  position: relative;
   width: clamp(30%, 500px, 90%);
   height: min(55%, 800px);
 
@@ -17,5 +18,11 @@
   &__content {
     height: 70%;
     margin-top: 2rem;
+  }
+
+  &__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
   }
 }
