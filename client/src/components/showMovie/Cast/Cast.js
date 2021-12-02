@@ -35,7 +35,7 @@ const Cast = ({ id }) => {
 
   useEffect(() => {
     getCredits();
-  }, []);
+  }, [params.id]);
 
   const genCrewMember = (data) => {
     return data.map((el, idx) => {

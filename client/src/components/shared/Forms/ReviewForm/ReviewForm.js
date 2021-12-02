@@ -98,7 +98,7 @@ function ReviewForm({ category, title, id, handleClose }) {
           onChange={(e) => onChange(e)}
         />
 
-        <button className="btn submit btn-search mt-1">Submit</button>
+        <button className="btn submit btn-search mt-1 mb-1">Submit</button>
       </form>
     </div>
   );

@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { ReloadContext } from '../../../Context/ReloadContext';
 import PosterThumb from '../../shared/PosterThumb/PosterThumb';
 import './Similar.scss';
 
