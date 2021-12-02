@@ -5,7 +5,7 @@ import Modal from '../../shared/Modal/Modal';
 import PlayTrailer from '../PlayTrailer/PlayTrailer';
 import './MovieDetails.scss';
 
-const MovieDetails = ({ title, overview, genres, length }) => {
+const MovieDetails = ({ id, title, overview, genres, length }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const close = () => setModalOpen(false);
