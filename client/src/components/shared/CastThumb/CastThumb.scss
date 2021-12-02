@@ -11,12 +11,16 @@
     border-radius: 0.5rem;
     height: 12rem;
     width: 8rem;
+
+    @media only screen and (max-width: 1440px) {
+      height: 8rem;
+    }
   }
 
   &__title-container {
     position: absolute;
-    bottom: -4.5rem;
-    height: 37%;
+    bottom: -10.5rem;
+    height: fit-content;
     width: 100%;
 
     border-radius: 0.5rem;

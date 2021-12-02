@@ -35,11 +35,14 @@ const BrowseMovies = () => {
   }, [searchResults]);
 
   const genMovieSet = (movies) => {
-    return movies.map((movie, idx) => (
-      <Link to={`/movie/${movie.id}`} key={idx}>
-        <PosterThumb {...movie} />
-      </Link>
-    ));
+    return movies.map(
+      (movie, idx) =>
+        movie.poster_path && (
+          <Link to={`/movie/${movie.id}`} key={idx}>
+            <PosterThumb {...movie} />
+          </Link>
+        )
+    );
   };
 
   return (

@@ -7,6 +7,7 @@
   width: 10rem;
   margin-bottom: 0.75rem;
   border-radius: 0.5rem;
+  overflow-y: hidden;
 
   // border: 1px solid white;
 
@@ -15,12 +16,12 @@
     bottom: -6.5rem;
     height: 37%;
     width: 100%;
-    display: none;
+    // display: none;
 
     border-radius: 0.5rem;
     background-color: #1c1c1cd1;
 
-    transition: 0.5s ease;
+    transition: all 0.5s ease;
   }
 }
 

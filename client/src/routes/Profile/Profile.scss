@@ -1,1 +1,12 @@
 @use '../../scss/' as *;
+
+.profile {
+  &__nav {
+    @include flex(row, center, center);
+  }
+
+  &__container {
+    margin: 1rem auto;
+    @include flex(row, center, center);
+  }
+}
