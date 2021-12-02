@@ -4,7 +4,7 @@ import MovieInfo from '../MovieInfo/MovieInfo';
 import './MovieSection.scss';
 
 function MovieSection(props) {
-  console.log(props);
+  // console.log(props);
 
   return (
     <div className="movie-section flex mt-2 mb-4">

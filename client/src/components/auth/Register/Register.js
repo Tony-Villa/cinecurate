@@ -74,7 +74,7 @@ function Register({ setAuth, handleClose }) {
           onChange={(e) => onChange(e)}
         />
 
-        <button className="btn submit">Submit</button>
+        <button className="btn-cta submit">Submit</button>
       </form>
     </div>
   );

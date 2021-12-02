@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Login.scss';
 
 const Login = ({ setAuth, handleClose }) => {
   const [inputs, setInputs] = useState({
@@ -35,9 +36,9 @@ const Login = ({ setAuth, handleClose }) => {
   };
 
   return (
-    <div>
+    <div className="login">
       <h1>login</h1>
-      <form className="flex register__form" onSubmit={onSubmitForm} autoComplete="off">
+      <form className="flex login__form" onSubmit={onSubmitForm} autoComplete="off">
         <input
           className="input-auth"
           type="text"
@@ -55,7 +56,7 @@ const Login = ({ setAuth, handleClose }) => {
           onChange={(e) => onChange(e)}
         />
 
-        <button className="btn submit">Submit</button>
+        <button className="btn-cta login__submit">Submit</button>
       </form>
     </div>
   );

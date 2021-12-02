@@ -11,6 +11,48 @@
 .btn-link {
   color: white;
   text-decoration: none;
+  background-image: $accentColor;
+  background-size: 0% 3px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  text-decoration: none;
+  transition: background-size 300ms ease;
+
+  &:hover {
+    background-size: 100% 3px;
+  }
+}
+
+.btn-search {
+  display: inline-block;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  transition: all 200ms ease-in;
+  cursor: pointer;
+  z-index: 3;
+
+  background: $accentColor;
+  color: $textColor;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  padding: 6px 36px;
+
+  &:hover {
+    background: darken($accentColor, 4%);
+  }
+
+  &:active {
+    background: $accentColor;
+    box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  &__inside {
+    margin-left: -96px;
+  }
 }
 
 .btn-post {
@@ -23,16 +65,12 @@
   // background: linear-gradient(145deg, #cd1c6f, #f42184);
   background: #e41f7b;
   box-shadow: 7px 7px 14px #161616, -7px -7px 14px #222222;
-
-  // box-shadow: inset 9.91px 9.91px 15px #cf1c70, inset -9.91px -9.91px 15px #f92286;
-
-  // border-radius: 50%;
-  // box-shadow: 5px 5px 10px #161616, inset -5px -5px 10px #222222;
 }
 
 .btn-pill-pink {
   text-decoration: none;
   outline: 2px solid $accentColor;
+  width: fit-content;
 
   background-color: $bgColor;
   border: none;

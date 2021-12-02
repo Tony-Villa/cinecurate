@@ -3,6 +3,7 @@
 .cta {
   // margin-left: 6rem;
   margin-top: 1rem;
+  width: 70%;
 
   @include flex(column, space-around, center);
 

@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
+import PosterThumb from '../../components/shared/PosterThumb/PosterThumb';
+import './BrowseMovies.scss';
 
 const BrowseMovies = () => {
   const {
@@ -31,12 +34,34 @@ const BrowseMovies = () => {
     console.log(searchResults);
   }, [searchResults]);
 
+  const genMovieSet = (movies) => {
+    return movies.map(
+      (movie, idx) =>
+        movie.poster_path && (
+          <Link to={`/movie/${movie.id}`} key={idx}>
+            <PosterThumb {...movie} />
+          </Link>
+        )
+    );
+  };
+
   return (
     <div>
-      <h1>I am browse page</h1>
-      <p>hello</p>
-      <p>{page}</p>
-      {page !== maxPage && <button onClick={() => getQuery()}>Load More</button>}
+      <div className="query-results">
+        <div className="query-results__container ">
+          <h1 className="header-font mb-1">Search Results for {query} </h1>
+          <div className="query-results__items ml-3 flex">
+            {searchResults ? genMovieSet(searchResults) : <h1>No movies found.</h1>}
+          </div>
+          <div className="query-results__load flex">
+            {page !== maxPage && (
+              <button className="btn btn-cta " onClick={() => getQuery()}>
+                Load More
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

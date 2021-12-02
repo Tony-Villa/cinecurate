@@ -2,14 +2,29 @@
 
 .nav {
   width: 100%;
-  //   border: 1px solid white;
   padding: 0 get-spacing(15);
+  // border: 1px solid white;
+  background-image: linear-gradient(#1c1c1c, transparent);
 
   @include flex(row, space-between, center);
+
+  &__logo {
+    height: 100%;
+    width: 15%;
+  }
+
+  &__logo-img {
+    height: 4rem;
+    // margin-top: 0.5rem;
+  }
 
   &__links {
     //   border: 1px solid white;
     width: 15%;
+  }
+
+  &__profile {
+    font-size: 1.25rem;
   }
 
   &__ul {

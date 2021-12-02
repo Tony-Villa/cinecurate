@@ -1,8 +1,8 @@
 @use '../../../scss/' as *;
 
 .modal {
-  width: clamp(50%, 700px, 90%);
-  height: min(50%, 600px);
+  width: clamp(30%, 500px, 90%);
+  height: min(55%, 800px);
 
   margin: auto;
   padding: 0, 2rem;
@@ -10,6 +10,7 @@
   z-index: 3;
 
   border: 1px solid white;
+  background-color: #1c1c1c;
 
   @include flex(column, center, center);
 

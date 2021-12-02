@@ -20,9 +20,9 @@ const Cast = ({ id }) => {
 
       const directorArr = crewArr.filter((el) => el.job === 'Director');
 
-      const writerArr = crewArr.filter((el) => el.job === 'Writer');
+      const writerArr = crewArr.filter((el) => el.job === 'Writer' || el.job === 'Screenplay');
 
-      console.log(directorArr);
+      // console.log(directorArr);
 
       setCast(castArr);
       setCrew(crewArr);
@@ -37,7 +37,7 @@ const Cast = ({ id }) => {
     getCredits();
   }, []);
 
-  const genDirector = (data) => {
+  const genCrewMember = (data) => {
     return data.map((el, idx) => {
       <p key={idx} className="text-content">
         {el.name}
@@ -57,8 +57,8 @@ const Cast = ({ id }) => {
     ));
   };
 
-  // console.log(genDirector(director));
-  console.log(director);
+  // console.log(genCrewMember(writer));
+  // console.log(writer);
 
   return (
     <div className="cast mt-1">
@@ -69,7 +69,12 @@ const Cast = ({ id }) => {
               <p className="text-bold content-font">Director</p>
             </div>
             <div className="cast__crew-member ml-1">
-              <p className="content-font">TODO: Get Director</p>
+              {director.length > 0 ? (
+                <p className="content-font">{director[0].name}</p>
+              ) : (
+                <p className="content-font">loading...</p>
+              )}
+              {/* <p className="content-font">TODO: Get Director</p> */}
             </div>
           </div>
         </div>
@@ -79,7 +84,14 @@ const Cast = ({ id }) => {
               <p className="text-bold content-font">Writer</p>
             </div>
             <div className="cast__crew-member ml-1">
-              <p className="content-font">TODO: Get Writer </p>
+              {writer ? (
+                <p className="content-font">
+                  {writer.map((el, idx) => (idx < writer.length - 1 ? `${el.name},  ` : `${el.name}`))}
+                </p>
+              ) : (
+                <p className="content-font">loading...</p>
+              )}
+              {/* <p className="content-font">TODO: Get Writer </p> */}
             </div>
           </div>
         </div>

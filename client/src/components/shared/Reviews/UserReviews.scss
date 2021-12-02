@@ -1,0 +1,73 @@
+@use '../../../scss/' as *;
+
+.user-review {
+  width: clamp(85%, 65rem, 90%);
+  height: 100%;
+  overflow-y: auto;
+
+  @include flex(row, center, flex-start);
+
+  &__container {
+    width: 100%;
+    height: 100%;
+    padding: 2.5rem;
+    // border: 1px solid white;
+
+    border-radius: 1rem;
+    background: #1c1c1c;
+    box-shadow: inset 5px 5px 10px #161616, inset -5px -5px 10px #222222;
+  }
+
+  &__nav {
+    @include flex(row, center, center);
+  }
+
+  &__options {
+    // margin-bottom: -3rem;
+    @include flex(row, flex-end, center);
+  }
+
+  &__post {
+    margin-right: 3rem;
+  }
+
+  &__card {
+    color: #1c1c1c;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: #bfbfbf;
+    min-width: 45%;
+    max-width: 65%;
+
+    box-shadow: 5px 5px 10px #161616, -5px -5px 10px #222222;
+
+    &__author-info {
+      @include flex(row, space-between, center);
+    }
+
+    &__movie-info {
+      @include flex(row, center, center);
+    }
+  }
+
+  &__user {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    background-color: $textColor;
+    box-shadow: 5px 5px 10px #161616, -5px -5px 10px #222222;
+
+    &img {
+      height: 5rem;
+      width: 5rem;
+    }
+  }
+}
+
+.user-review-content-container-even {
+  @include flex(row, flex-start, baseline);
+}
+
+.user-review-content-container-odd {
+  @include flex(row, flex-end, baseline);
+}

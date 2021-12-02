@@ -6,17 +6,26 @@
   position: relative;
   width: 10rem;
   margin-bottom: 0.75rem;
+  border-radius: 0.5rem;
+  overflow-y: hidden;
 
   // border: 1px solid white;
 
   &__title-container {
-    width: 10rem;
     position: absolute;
-    top: 0;
-    background-color: $bgColor;
-    // opacity: 35%;
-  }
+    bottom: -6.5rem;
+    height: 37%;
+    width: 100%;
+    // display: none;
 
-  &__title {
+    border-radius: 0.5rem;
+    background-color: #1c1c1cd1;
+
+    transition: all 0.5s ease;
   }
+}
+
+.poster:hover .poster__title-container {
+  bottom: 0;
+  display: block;
 }

@@ -1,0 +1,8 @@
+@use '../../scss/' as *;
+
+.home {
+  &__welcome {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+}

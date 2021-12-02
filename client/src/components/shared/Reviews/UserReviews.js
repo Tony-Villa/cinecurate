@@ -1,10 +1,10 @@
 import { AnimatePresence } from 'framer-motion';
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { ReloadContext } from '../../../Context/ReloadContext';
 import Modal from '../Modal/Modal';
 import EditReview from './EditReview';
-import './Reviews.scss';
+import './UserReviews.scss';
 
 const UserReviews = () => {
   const { isReload, setIsReload } = useContext(ReloadContext);
@@ -36,20 +36,30 @@ const UserReviews = () => {
     getReviews();
   }, [params.id, isReload]);
 
+  console.log(reviews[0]);
+
   return (
-    <div className="review flex">
-      <div className="review__container">
+    <div className="user-review flex">
+      <div className="user-review__container">
         <h1>Your reviews:</h1>
         {reviews.map((el, idx) => (
-          <div key={idx} className="review__card">
-            <div className="review__card__author-info">
+          <div key={idx} className="user-review__card mt-2">
+            <div className="user-review__card__movie-info flex">
+              <h4 className="title-font text-bold ">
+                <Link style={{ textDecoration: 'none' }} to={`/movie/${el.movie_id}`}>
+                  {el.movie_title}
+                </Link>{' '}
+                | {el.review_type}
+              </h4>
+            </div>
+            <div className="user-review__card__author-info">
               <h4 className="content-font">{el.first_name}</h4>
             </div>
-            <div className="review__card__content">
-              <h4 className="title-font">{el.rating}</h4>
+            <div className="user-review__card__content">
+              <h4 className="title-font">Rating: {el.rating}</h4>
               <p className="content-font"> {el.review} </p>
             </div>
-            <div className="review__user-options flex">
+            <div className="user-review__user-options flex">
               <EditReview className="btn-edit" content={el} />
               <button className="btn-delete" onClick={() => deleteReview(el.id)}>
                 delete
