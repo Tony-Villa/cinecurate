@@ -93,7 +93,6 @@ function MovieGraph({ title }) {
       category: 'Editing',
       [movieTitle]: edit,
     },
-
     {
       category: 'VFX',
       [movieTitle]: vfx,

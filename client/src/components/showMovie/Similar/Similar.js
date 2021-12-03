@@ -30,7 +30,7 @@ function Similar() {
 
   return (
     <div className="similar mt-2">
-      <h1 className="similar__title header-font">Similar Movies</h1>
+      <h1 className="similar__title header-font mt-1">Similar Movies</h1>
       {similarMovies.length ? genSimilarSet(similarMovies) : <h3>loading...</h3>}
     </div>
   );
