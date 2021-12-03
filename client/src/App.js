@@ -54,6 +54,10 @@ function App() {
   });
 
   useEffect(() => {
+    document.title = 'CineCurate';
+  }, []);
+
+  useEffect(() => {
     getUser();
   }, [isUser]);
 
