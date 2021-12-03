@@ -18,13 +18,28 @@ const PlayTrailer = () => {
         setTrailer('dQw4w9WgXcQ');
       }
 
+      let officialTrailer = '';
+      let trailer = '';
+      const lastIndex = trailers.length - 1;
+
       trailers.map((el, i) => {
         if (el.name === 'Official Trailer') {
-          setTrailer(el.key);
-        } else {
-          setTrailer('dQw4w9WgXcQ');
+          officialTrailer = el.key;
         }
       });
+      trailers.map((el, i) => {
+        if (el.name.toLowerCase().includes('trailer')) {
+          trailer = el.key;
+        }
+      });
+
+      if (officialTrailer !== '') {
+        setTrailer(officialTrailer);
+      } else if (trailer !== '') {
+        setTrailer(trailer);
+      } else {
+        setTrailer(trailers[lastIndex].key);
+      }
     } catch (err) {
       console.log(err.message);
     }
