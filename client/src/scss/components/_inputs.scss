@@ -19,7 +19,7 @@ input {
   height: 2rem;
   background: #fff;
   color: $bgColor;
-  font: $contentFont;
+  font-family: $contentFont;
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
   border: 0;
   outline: 0;
@@ -38,3 +38,8 @@ input {
 //   // padding: 22px 18px;
 //   z-index: 1;
 // }
+
+textarea {
+  padding: 1rem;
+  font-family: $contentFont;
+}

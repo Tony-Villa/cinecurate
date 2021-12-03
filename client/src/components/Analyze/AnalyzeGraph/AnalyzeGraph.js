@@ -1,103 +1,101 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Radar, ResponsiveRadar } from '@nivo/radar';
 import { useParams } from 'react-router-dom';
-import './MovieGraph.scss';
+import './AnalyzeGraph.scss';
 import { ReloadContext } from '../../../Context/ReloadContext';
 
-function MovieGraph({ title }) {
+const AnalyzeGraph = ({ currentMovies }) => {
   const { isReload, setIsReload } = useContext(ReloadContext);
-
-  const [movieTitle, setMovieTitle] = useState('');
-  const [cine, setCine] = useState(0);
-  const [edit, setEdit] = useState(0);
-  const [hmu, setHmu] = useState(0);
-  const [act, setAct] = useState(0);
-  const [art, setArt] = useState(0);
-  const [sound, setSound] = useState(0);
-  const [story, setStory] = useState(0);
-  const [vfx, setVfx] = useState(0);
-
   const params = useParams();
 
-  useEffect(() => {
-    const fetchStats = async () => {
-      const res = await fetch(`https://api-cinecurate.herokuapp.com/v1/reviews/avgrating/${params.id}`);
+  const [movieListData, setMovieListData] = useState([]);
+  const [graphData, setGraphData] = useState([]);
+  //   console.log(currentMovies);
+
+  const fetchData = async (id) => {
+    try {
+      const res = await fetch(`https://api-cinecurate.herokuapp.com/v1/reviews/avgrating/${id}`);
       const parseRes = await res.json();
       const ratingData = parseRes.avgRatings;
 
-      if (ratingData.length) {
-        setMovieTitle(ratingData[0].movie_title);
+      return ratingData;
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
 
-        ratingData.map((rating, idx) => {
-          if (rating.category === 'cinematography') {
-            setCine(rating.avgrating);
-          } else if (rating.category === 'editing') {
-            setEdit(rating.avgrating);
-          } else if (rating.category === 'hmu') {
-            setHmu(rating.avgrating);
-          } else if (rating.category === 'acting') {
-            setAct(rating.avgrating);
-          } else if (rating.category === 'art') {
-            setArt(rating.avgrating);
-          } else if (rating.category === 'sound') {
-            setSound(rating.avgrating);
-          } else if (rating.category === 'story') {
-            setStory(rating.avgrating);
-          } else if (rating.category === 'vfx') {
-            setVfx(rating.avgrating);
-          } else {
-            return;
-          }
-        });
-      } else {
-        setCine(0);
-        setEdit(0);
-        setHmu(0);
-        setAct(0);
-        setArt(0);
-        setSound(0);
-        setStory(0);
-        setVfx(0);
-      }
-    };
+  const getData = async (arr) => {
+    let i = 0;
+    let dataList = [];
+    for (i; i < arr.length; i++) {
+      const response = await fetch(`https://api-cinecurate.herokuapp.com/v1/reviews/avgrating/${arr[i].id}`);
+      const json = await response.json();
 
-    fetchStats();
-  }, [params.id, isReload]);
+      //   console.log(json);
+      dataList.push(json);
+    }
+    return dataList;
+  };
 
   const data = [
     {
       category: 'Cinematography',
-      [movieTitle]: cine,
     },
     {
       category: 'Hair/Makeup',
-      [movieTitle]: hmu,
     },
     {
       category: 'Acting',
-      [movieTitle]: act,
     },
     {
       category: 'Story',
-      [movieTitle]: story,
     },
     {
       category: 'Art/Prod Design',
-      [movieTitle]: art,
     },
     {
       category: 'Sound/Music',
-      [movieTitle]: sound,
     },
     {
       category: 'Editing',
-      [movieTitle]: edit,
     },
     {
       category: 'VFX',
-      [movieTitle]: vfx,
     },
   ];
+
+  useEffect(async () => {
+    let movieData = await getData(currentMovies);
+
+    movieData.map((movie, idx) => {
+      movie.avgRatings.map((rating) => {
+        if (rating.category === 'cinematography') {
+          data[0][rating.movie_title] = rating.avgrating;
+        } else if (rating.category === 'hmu') {
+          data[1][rating.movie_title] = rating.avgrating;
+        } else if (rating.category === 'acting') {
+          data[2][rating.movie_title] = rating.avgrating;
+        } else if (rating.category === 'story') {
+          data[3][rating.movie_title] = rating.avgrating;
+        } else if (rating.category === 'art') {
+          data[4][rating.movie_title] = rating.avgrating;
+        } else if (rating.category === 'sound') {
+          data[5][rating.movie_title] = rating.avgrating;
+        } else if (rating.category === 'editing') {
+          data[6][rating.movie_title] = rating.avgrating;
+        } else if (rating.category === 'vfx') {
+          data[7][rating.movie_title] = rating.avgrating;
+        }
+      });
+    });
+
+    setGraphData(data);
+    setMovieListData(movieData);
+  }, []);
+
+  useEffect(() => {
+    console.log('Graph Data', graphData);
+  }, [graphData]);
 
   const theme = {
     axis: {
@@ -131,22 +129,26 @@ function MovieGraph({ title }) {
     },
   };
 
+  let titleArr = movieListData.map((el) => el.title.movie_title);
+
+  console.log(titleArr);
+
   const commonProperties = {
-    width: 500,
-    height: 420,
+    width: 720,
+    height: 500,
     margin: { top: 60, right: 0, bottom: 60, left: 10 },
-    data: data,
+    data: graphData,
     maxValue: 10,
     indexBy: 'category',
-    keys: [movieTitle],
+    keys: titleArr,
     borderColor: '#e41f7b',
-    colors: ['#e41f7b'],
+    colors: ['#e41f7b', '#FD7014', '#00FFF5', '#DBD8E3'],
     theme: theme,
     dotSize: 10,
     dotColor: '#2D374D',
-    dotBorderColor: '#e41f7b',
+    dotBorderColor: '#fff',
     dotBorderWidth: 2,
-    enableDotLabel: true,
+    enableDotLabel: false,
     dotLabelYOffset: -8,
     blendMode: 'screen',
     motionConfig: 'wobbly',
@@ -182,6 +184,6 @@ function MovieGraph({ title }) {
       />
     </div>
   );
-}
+};
 
-export default MovieGraph;
+export default AnalyzeGraph;

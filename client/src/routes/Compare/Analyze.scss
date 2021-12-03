@@ -1,0 +1,28 @@
+@use '../../scss/' as *;
+
+.analyze {
+  &__single-movie {
+    // border: 1px solid white;
+    width: 40%;
+    height: 20rem;
+    @include flex(column, center, center);
+
+    border-radius: 1rem;
+    background: #1c1c1c;
+    box-shadow: inset 5px 5px 10px #161616, inset -5px -5px 10px #222222;
+  }
+
+  &__all-movies {
+    flex-basis: 50%;
+    &:nth-child(even) {
+      @include flex(row, center, flex-start);
+    }
+    &:nth-child(odd) {
+      @include flex(row, center, flex-end);
+    }
+  }
+
+  &__graph {
+    @include flex(row, center, center);
+  }
+}

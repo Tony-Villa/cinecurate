@@ -1,7 +1,7 @@
 import React from 'react';
 import './PosterThumb.scss';
 
-const PosterThumb = ({ title, poster_path }) => {
+const PosterThumb = ({ id, title, poster_path }) => {
   return (
     <div className="poster">
       <img

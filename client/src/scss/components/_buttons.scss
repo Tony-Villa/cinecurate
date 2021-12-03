@@ -1,4 +1,5 @@
 @use '../abstracts/' as *;
+@use '../base/' as *;
 
 .btn {
   color: white;
@@ -27,7 +28,7 @@
   display: inline-block;
   background: transparent;
   color: inherit;
-  font: inherit;
+  font-family: $contentFont;
   border: 0;
   outline: 0;
   padding: 0;
