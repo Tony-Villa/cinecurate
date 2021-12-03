@@ -35,7 +35,7 @@
 
   &__links {
     //   border: 1px solid white;
-    width: 15%;
+    width: 35%;
   }
 
   &__profile {
@@ -46,7 +46,7 @@
     width: 100%;
     // border: 1px solid lightblue;
 
-    @include flex(row, space-around, center);
+    @include flex(row, flex-end, center);
   }
 
   &__li {
