@@ -10,7 +10,7 @@ const BrowseMovies = () => {
   } = useLocation();
 
   const [searchResults, setSearchResults] = useState(data);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(2);
 
   const getQuery = async () => {
     try {
