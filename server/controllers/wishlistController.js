@@ -18,7 +18,10 @@ const addToWishlist = async (req, res) => {
   try {
     const { user_id, movie_id, movie_title, poster } = req.body;
 
-    const checkMovie = await pool.query('SELECT * FROM wishlist WHERE movie_id = $1 ', [movie_id]);
+    const checkMovie = await pool.query('SELECT * FROM wishlist WHERE movie_id = $1 and user_id = $2 ', [
+      movie_id,
+      user_id,
+    ]);
     if (checkMovie.rows.length != 0) {
       return res.status(401).json({ message: 'This movie is already on your watchlist' });
     }
