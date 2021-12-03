@@ -35,7 +35,7 @@ const Navbar = ({ isUser, setAuth }) => {
         <ul className="nav__ul flex">
           {user && (
             // <div className="btn-link">
-            <Link className="btn-link nav__profile-link" to={`profile/${user.id}`}>
+            <Link className="btn-link mr-2 nav__profile-link" to={`profile/${user.id}`}>
               <p className="btn-link content-font nav__profile">{user.first_name}</p>
             </Link>
             // </div>
@@ -43,7 +43,7 @@ const Navbar = ({ isUser, setAuth }) => {
           {/* <li className="nav__li">Browse</li> */}
 
           {!isUser ? (
-            <button className="nav__li btn-cta" onClick={() => (modalOpen ? close() : open())}>
+            <button className="nav__li mr-4 btn-cta" onClick={() => (modalOpen ? close() : open())}>
               Sign In/Up
             </button>
           ) : (
