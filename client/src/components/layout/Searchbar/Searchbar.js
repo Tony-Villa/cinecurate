@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Searchbar.scss';
 
 function Searchbar() {
   const [query, setQuery] = useState('');
@@ -30,7 +31,7 @@ function Searchbar() {
   };
 
   return (
-    <div>
+    <div className="searchbar-container">
       <form autoComplete="off" className="movie-query" onSubmit={submitForm}>
         <input
           className="search-movie"
