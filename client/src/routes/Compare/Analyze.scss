@@ -2,6 +2,7 @@
 
 .analyze {
   &__single-movie {
+    position: relative;
     // border: 1px solid white;
     width: 40%;
     height: 20rem;
@@ -10,6 +11,7 @@
     border-radius: 1rem;
     background: #1c1c1c;
     box-shadow: inset 5px 5px 10px #161616, inset -5px -5px 10px #222222;
+    z-index: -2;
   }
 
   &__all-movies {
@@ -24,5 +26,36 @@
 
   &__graph {
     @include flex(row, center, center);
+  }
+
+  &__winner {
+    width: 90%;
+    height: 90%;
+    background-color: $accentColor;
+    position: absolute;
+    // border-radius: 1rem;
+    opacity: 1;
+    // box-shadow: 1px 2px 3px #e41f7be1;
+    box-shadow: 0 0 14px 14px $bgColor inset;
+    z-index: -1;
+  }
+
+  &__top {
+    position: relative;
+  }
+
+  &__choose-btn {
+    height: 15rem;
+    width: 12rem;
+    padding: 1rem;
+    border: 3px solid $accentColor;
+    border-radius: 1rem;
+    font-size: 1.4rem;
+
+    @include flex(column, center, center);
+
+    position: absolute;
+    top: 22%;
+    right: 10rem;
   }
 }
