@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from '../../../Context/UserContext';
 import AddWatchlist from '../AddWatchlist/AddWatchlist';
+import CompareBtn from '../CompareBtn/CompareBtn';
 import './CtaButtons.scss';
 
 function CtaButtons(props) {
@@ -10,7 +11,7 @@ function CtaButtons(props) {
   return (
     <div className=" cta cta-container flex">
       <div className="cta__option">{user?.username && <AddWatchlist {...props} />}</div>
-      <button className="btn btn-cta  content-font">Compare</button>
+      <CompareBtn {...props} />
     </div>
   );
 }
