@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import './App.scss';
+import Footer from './components/layout/Footer/Footer';
 import Navbar from './components/layout/Navbar/Navbar';
 import { ReloadContext } from './Context/ReloadContext';
 import { UserContext } from './Context/UserContext';
@@ -61,6 +62,7 @@ function App() {
       <UserContext.Provider value={value}>
         <Navbar isUser={isUser} setAuth={setAuth} />
         <ReloadContext.Provider value={{ isReload, setIsReload }}>{routes}</ReloadContext.Provider>
+        <Footer />
       </UserContext.Provider>
     </div>
   );

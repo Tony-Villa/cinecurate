@@ -1,0 +1,34 @@
+@use '../../../scss/' as *;
+
+.footer {
+  min-height: 15rem;
+  width: 60%;
+  margin: 1rem auto;
+
+  //   border: 1px solid white;
+
+  &__content-container {
+    @include flex(row, center, center);
+  }
+
+  &__credits {
+    @include flex(column, center, center);
+    // border: 1px solid coral;
+  }
+
+  &__api-credit {
+    font-size: 1.2rem;
+  }
+
+  &__tmdb {
+    width: 10rem;
+  }
+
+  &__socials {
+    // border: 1px solid coral;
+    width: 50%;
+    margin-left: 10%;
+
+    @include flex(row, space-between, center);
+  }
+}
