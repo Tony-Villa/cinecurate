@@ -93,9 +93,7 @@ const AnalyzeGraph = ({ currentMovies }) => {
     setMovieListData(movieData);
   }, []);
 
-  useEffect(() => {
-    console.log('Graph Data', graphData);
-  }, [graphData]);
+  useEffect(() => {}, [graphData]);
 
   const theme = {
     axis: {
@@ -131,8 +129,6 @@ const AnalyzeGraph = ({ currentMovies }) => {
 
   let titleArr = movieListData.map((el) => el.title.movie_title);
 
-  console.log(titleArr);
-
   const commonProperties = {
     width: 720,
     height: 500,
@@ -142,7 +138,7 @@ const AnalyzeGraph = ({ currentMovies }) => {
     indexBy: 'category',
     keys: titleArr,
     borderColor: '#e41f7b',
-    colors: ['#e41f7b', '#FD7014', '#00FFF5', '#DBD8E3'],
+    colors: ['#e41f7b', '#FD7014', '#00FFF5', '#3E065F'],
     theme: theme,
     dotSize: 10,
     dotColor: '#2D374D',
@@ -175,7 +171,7 @@ const AnalyzeGraph = ({ currentMovies }) => {
               {
                 on: 'hover',
                 style: {
-                  itemTextColor: '#000',
+                  itemTextColor: '#fff',
                 },
               },
             ],
