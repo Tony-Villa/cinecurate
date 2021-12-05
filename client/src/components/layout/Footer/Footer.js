@@ -16,7 +16,6 @@ const Footer = () => {
         <div className="footer__socials flex">
           <FontAwesomeIcon icon={faInstagram} size="3x" style={{ color: '#e41f7b' }} />
           <FontAwesomeIcon icon={faTwitter} size="3x" style={{ color: '#e41f7b' }} />
-          <FontAwesomeIcon icon={faInstagram} size="3x" style={{ color: '#e41f7b' }} />
           <FontAwesomeIcon icon={faTwitch} size="3x" style={{ color: '#e41f7b' }} />
           <FontAwesomeIcon icon={faFacebook} size="3x" style={{ color: '#e41f7b' }} />
           <FontAwesomeIcon icon={faYoutube} size="3x" style={{ color: '#e41f7b' }} />
