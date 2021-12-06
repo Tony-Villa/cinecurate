@@ -32,8 +32,6 @@ const ShowMovie = () => {
     window.scrollTo(0, 0);
   }, [params.id]);
 
-  console.log(formattedRuntime);
-
   return (
     <div className="show">
       <div className="show__top">
