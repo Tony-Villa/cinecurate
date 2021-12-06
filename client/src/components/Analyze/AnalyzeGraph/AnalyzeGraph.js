@@ -93,7 +93,9 @@ const AnalyzeGraph = ({ currentMovies }) => {
     setMovieListData(movieData);
   }, []);
 
-  useEffect(() => {}, [graphData]);
+  useEffect(() => {
+    // console.log(movieListData);
+  }, [graphData]);
 
   const theme = {
     axis: {
