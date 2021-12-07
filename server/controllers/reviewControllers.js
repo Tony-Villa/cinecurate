@@ -1,6 +1,7 @@
 const pool = require('../db_config/db');
 const axios = require('axios');
 require('dotenv').config();
+const apiKey = process.env.APIKEY;
 
 const showReviews = async (req, res, next) => {
   try {
@@ -36,15 +37,15 @@ const showAvgRating = async (req, res) => {
 
     // const movieTitle = await pool.query(`SELECT movie_title FROM reviews WHERE movie_id = $1`, [movie_id]);
 
-    const tmdbRes = await axios.get(
-      `https://api.themoviedb.org/3/movie/${req.params.movie_id}?api_key=${apiKey}&language=en-US`
-    );
-    const movieTitle = await tmdbRes.data.title;
-
     const avgRatings = await pool.query(
       'SELECT movie_title, review_type As category, ROUND(AVG(rating), 2) AS AvgRating FROM reviews WHERE movie_id = $1 GROUP BY review_type, movie_title ORDER BY review_type DESC',
       [movie_id]
     );
+
+    const tmdbRes = await axios.get(
+      `https://api.themoviedb.org/3/movie/${req.params.movie_id}?api_key=${apiKey}&language=en-US`
+    );
+    const movieTitle = await tmdbRes.data.title;
 
     res.status(200).json({ title: movieTitle, avgRatings: avgRatings.rows });
   } catch (err) {
