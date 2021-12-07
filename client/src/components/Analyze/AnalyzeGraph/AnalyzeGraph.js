@@ -10,7 +10,8 @@ const AnalyzeGraph = ({ currentMovies }) => {
 
   const [movieListData, setMovieListData] = useState([]);
   const [graphData, setGraphData] = useState([]);
-  console.log(currentMovies);
+  console.log('current movies', currentMovies);
+  console.log('movie list data', movieListData);
 
   const fetchData = async (id) => {
     try {
@@ -68,41 +69,37 @@ const AnalyzeGraph = ({ currentMovies }) => {
     let movieData = await getData(currentMovies);
 
     const handleMovieData = (movieData) => {
-      if (!movieData) {
-        data.forEach((el, i) => {
-          el[currentMovies.title] = 0;
+      movieData.map((movie, idx) => {
+        data.map((el, i) => {
+          el[movie.title] = '0';
         });
-        // data[7][currentMovies.title] = 0;
-      } else {
-        movieData.map((movie, idx) => {
-          movie.avgRatings.map((rating) => {
-            if (!rating.category) {
-              data.forEach((el, i) => {
-                el[rating.movie_title] = 0;
-              });
-              // data[0][rating.movie_title] = 0;
-            }
 
-            if (rating.category === 'cinematography') {
-              data[0][rating.movie_title] = rating.avgrating;
-            } else if (rating.category === 'hmu') {
-              data[1][rating.movie_title] = rating.avgrating;
-            } else if (rating.category === 'acting') {
-              data[2][rating.movie_title] = rating.avgrating;
-            } else if (rating.category === 'story') {
-              data[3][rating.movie_title] = rating.avgrating;
-            } else if (rating.category === 'art') {
-              data[4][rating.movie_title] = rating.avgrating;
-            } else if (rating.category === 'sound') {
-              data[5][rating.movie_title] = rating.avgrating;
-            } else if (rating.category === 'editing') {
-              data[6][rating.movie_title] = rating.avgrating;
-            } else if (rating.category === 'vfx') {
-              data[7][rating.movie_title] = rating.avgrating;
-            }
-          });
+        movie.avgRatings.map((rating) => {
+          if (!rating.category) {
+            data.forEach((el, i) => {
+              el[rating.movie_title] = '0';
+            });
+          }
+
+          if (rating.category === 'cinematography') {
+            data[0][rating.movie_title] = rating.avgrating;
+          } else if (rating.category === 'hmu') {
+            data[1][rating.movie_title] = rating.avgrating;
+          } else if (rating.category === 'acting') {
+            data[2][rating.movie_title] = rating.avgrating;
+          } else if (rating.category === 'story') {
+            data[3][rating.movie_title] = rating.avgrating;
+          } else if (rating.category === 'art') {
+            data[4][rating.movie_title] = rating.avgrating;
+          } else if (rating.category === 'sound') {
+            data[5][rating.movie_title] = rating.avgrating;
+          } else if (rating.category === 'editing') {
+            data[6][rating.movie_title] = rating.avgrating;
+          } else if (rating.category === 'vfx') {
+            data[7][rating.movie_title] = rating.avgrating;
+          }
         });
-      }
+      });
     };
 
     handleMovieData(movieData);
@@ -112,7 +109,7 @@ const AnalyzeGraph = ({ currentMovies }) => {
   }, []);
 
   useEffect(() => {
-    console.log(movieListData);
+    console.log('graph Data', graphData);
   }, [graphData]);
 
   const theme = {
@@ -147,7 +144,7 @@ const AnalyzeGraph = ({ currentMovies }) => {
     },
   };
 
-  let titleArr = movieListData.map((el) => el.title.movie_title);
+  let titleArr = movieListData.map((el) => el.title);
 
   const commonProperties = {
     width: 720,
