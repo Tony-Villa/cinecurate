@@ -10,8 +10,8 @@ const AnalyzeGraph = ({ currentMovies }) => {
 
   const [movieListData, setMovieListData] = useState([]);
   const [graphData, setGraphData] = useState([]);
-  console.log('current movies', currentMovies);
-  console.log('movie list data', movieListData);
+  // console.log('current movies', currentMovies);
+  // console.log('movie list data', movieListData);
 
   const fetchData = async (id) => {
     try {
@@ -109,7 +109,7 @@ const AnalyzeGraph = ({ currentMovies }) => {
   }, []);
 
   useEffect(() => {
-    console.log('graph Data', graphData);
+    // console.log('graph Data', graphData);
   }, [graphData]);
 
   const theme = {
