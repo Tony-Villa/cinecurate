@@ -39,8 +39,7 @@ const showAvgRating = async (req, res) => {
     const tmdbRes = await axios.get(
       `https://api.themoviedb.org/3/movie/${req.params.movie_id}?api_key=${apiKey}&language=en-US`
     );
-    const tmdbResParsed = await tmdbRes.data;
-    const movieTitle = tmdbResParsed.title;
+    const movieTitle = await tmdbRes.data.title;
 
     const avgRatings = await pool.query(
       'SELECT movie_title, review_type As category, ROUND(AVG(rating), 2) AS AvgRating FROM reviews WHERE movie_id = $1 GROUP BY review_type, movie_title ORDER BY review_type DESC',
