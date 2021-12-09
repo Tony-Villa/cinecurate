@@ -5,6 +5,10 @@ import Navbar from './components/layout/Navbar/Navbar';
 import { ReloadContext } from './Context/ReloadContext';
 import { UserContext } from './Context/UserContext';
 import routes from './routes/config/routes';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure();
 
 function App() {
   const [isUser, setIsUser] = useState(false);
