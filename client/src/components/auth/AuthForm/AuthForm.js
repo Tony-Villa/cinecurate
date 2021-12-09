@@ -19,15 +19,15 @@ export const AuthForm = ({ setAuth, handleClose }) => {
         </button> */}
         {login ? (
           <div className="auth-form__swap-options flex mt-2">
-            <p className="content-font"> Already signed up? </p>
-            <button className="btn-cta auth-form__swap-btn" onClick={() => setLogin(!login)}>
+            <p className="content-font mr-1"> Already signed up? </p>
+            <button className="btn-cta auth-form__swap-btn ml-1" onClick={() => setLogin(!login)}>
               Log in
             </button>
           </div>
         ) : (
           <div className="auth-form__swap-options flex mt-2">
-            <p className="content-font"> Don't Have an an account? </p>
-            <button className="btn-cta auth-form__swap-btn" onClick={() => setLogin(!login)}>
+            <p className="content-font mr-1"> Don't Have an an account? </p>
+            <button className="btn-cta auth-form__swap-btn ml-1" onClick={() => setLogin(!login)}>
               Sign Up!
             </button>
           </div>

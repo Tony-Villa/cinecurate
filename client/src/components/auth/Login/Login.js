@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './Login.scss';
 
 const Login = ({ setAuth, handleClose }) => {
@@ -25,11 +27,15 @@ const Login = ({ setAuth, handleClose }) => {
       });
       const parsedRes = await res.json();
 
-      // console.log(parsedRes.token);
-
-      localStorage.setItem('token', parsedRes.token);
-      setAuth(true);
-      handleClose();
+      if (parsedRes.token) {
+        localStorage.setItem('token', parsedRes.token);
+        setAuth(true);
+        handleClose();
+        toast.success('Login Successful!', { theme: 'dark' });
+      } else {
+        setAuth(false);
+        toast.error(parsedRes, { theme: 'dark' });
+      }
     } catch (err) {
       console.log(err.message);
     }
