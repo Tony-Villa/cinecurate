@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "CineCurate",
+  "name": "CineCurate - Best place for cinephiles to talk about movies",
   "icons": [
     {
       "src": "favicon.ico",
