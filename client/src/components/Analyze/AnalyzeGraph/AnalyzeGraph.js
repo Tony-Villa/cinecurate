@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Radar, ResponsiveRadar } from '@nivo/radar';
+import { Radar } from '@nivo/radar';
 import { useParams } from 'react-router-dom';
 import './AnalyzeGraph.scss';
 import { ReloadContext } from '../../../Context/ReloadContext';
