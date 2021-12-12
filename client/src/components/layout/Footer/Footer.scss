@@ -29,6 +29,6 @@
     width: 50%;
     margin-left: 10%;
 
-    @include flex(row, space-between, center);
+    @include flex(row, center, center);
   }
 }

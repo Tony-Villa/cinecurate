@@ -2,7 +2,8 @@ import React from 'react';
 import tmbd from '../../../../src/asstes/TMDB_Logo.svg';
 import './Footer.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInstagram, faFacebook, faTwitter, faTwitch, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -14,11 +15,12 @@ const Footer = () => {
           <img className="footer__tmdb " src={tmbd} alt="The Movie Database" />
         </div>
         <div className="footer__socials flex">
-          <FontAwesomeIcon icon={faInstagram} size="3x" style={{ color: '#e41f7b' }} />
-          <FontAwesomeIcon icon={faTwitter} size="3x" style={{ color: '#e41f7b' }} />
-          <FontAwesomeIcon icon={faTwitch} size="3x" style={{ color: '#e41f7b' }} />
-          <FontAwesomeIcon icon={faFacebook} size="3x" style={{ color: '#e41f7b' }} />
-          <FontAwesomeIcon icon={faYoutube} size="3x" style={{ color: '#e41f7b' }} />
+          <a href="https://github.com/Tony-Villa/cinecurate" target="_blank">
+            <FontAwesomeIcon className="mr-2" icon={faGithub} size="3x" style={{ color: '#e41f7b' }} />
+          </a>
+          <a href="https://www.linkedin.com/in/tony-villa-dev/" target="_blank">
+            <FontAwesomeIcon icon={faLinkedin} size="3x" style={{ color: '#e41f7b' }} />
+          </a>
         </div>
       </div>
     </div>
