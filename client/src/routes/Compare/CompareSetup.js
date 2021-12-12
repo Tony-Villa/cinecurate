@@ -55,7 +55,6 @@ const CompareSetup = () => {
       const parseResp = await response.json();
       const data = parseResp.movie.results;
       const queryMaxPage = parseResp.movie.total_pages;
-      const currentPage = 1;
 
       setQueryResults([...queryResults, ...data]);
       setMaxPage(queryMaxPage);
@@ -73,12 +72,14 @@ const CompareSetup = () => {
     let newAddition = { title, id, poster_path };
 
     setCurrentMovies([...currentMovies, newAddition]);
+    setQueryResults(queryResults.filter((query) => query.id !== id));
   };
 
   const handleDelete = (movies, current) => {
     const updatedList = movies.filter((movie) => movie.id !== current.id);
 
     setCurrentMovies(updatedList);
+    setQueryResults([current, ...queryResults]);
   };
 
   const genCurrentSet = (movies) => {

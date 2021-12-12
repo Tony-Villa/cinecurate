@@ -1,4 +1,3 @@
-import { m } from 'framer-motion';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Reviews from '../../components/shared/Reviews/Reviews';
@@ -30,7 +29,7 @@ const ShowMovie = () => {
     getMovie();
     genRuntime(movie.runtime);
     window.scrollTo(0, 0);
-  }, [params.id]);
+  }, [params.id, movie.runtime]);
 
   return (
     <div className="show">

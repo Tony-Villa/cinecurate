@@ -24,7 +24,7 @@ const ShowWatchlist = () => {
 
   const deleteWatchlistItem = async (id) => {
     try {
-      const res = await fetch(`https://api-cinecurate.herokuapp.com/v1/wishlist/${id}`, {
+      await fetch(`https://api-cinecurate.herokuapp.com/v1/wishlist/${id}`, {
         method: 'DELETE',
       });
 
