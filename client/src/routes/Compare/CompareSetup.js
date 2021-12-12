@@ -79,6 +79,7 @@ const CompareSetup = () => {
     const updatedList = movies.filter((movie) => movie.id !== current.id);
 
     setCurrentMovies(updatedList);
+    setQueryResults([current, ...queryResults]);
   };
 
   const genCurrentSet = (movies) => {
