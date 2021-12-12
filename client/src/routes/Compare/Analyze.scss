@@ -58,4 +58,19 @@
     top: 22%;
     right: 10rem;
   }
+
+  &__back-btn {
+    min-height: 15rem;
+    width: 12rem;
+    padding: 1rem;
+    border: 3px solid $accentColor;
+    border-radius: 1rem;
+    font-size: 1.4rem;
+
+    @include flex(column, center, center);
+
+    position: absolute;
+    top: 22%;
+    left: 10rem;
+  }
 }

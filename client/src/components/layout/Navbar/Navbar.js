@@ -5,7 +5,7 @@ import Searchbar from '../Searchbar/Searchbar';
 import './Navbar.scss';
 import { AuthForm } from '../../auth/AuthForm/AuthForm';
 import { UserContext } from '../../../Context/UserContext';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import logo from '../../../asstes/logo-png.png';
 
 const Navbar = ({ isUser, setAuth }) => {

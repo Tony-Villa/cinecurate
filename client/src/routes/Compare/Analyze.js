@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import AnalyzeGraph from '../../components/Analyze/AnalyzeGraph/AnalyzeGraph';
 import './Analyze.scss';
 
 const Analyze = () => {
+  const navigate = useNavigate();
+
   const {
     state: { currentMovies },
   } = useLocation();
@@ -53,6 +55,10 @@ const Analyze = () => {
     setRandNum(Math.floor(Math.random() * arr.length));
   };
 
+  // const handleBack = () => {
+  //   navigate(-1);
+  // };
+
   return (
     <div className="analyze">
       <h1 className="content-font text-center mt-1">Analyze</h1>
@@ -64,6 +70,12 @@ const Analyze = () => {
           <h4 className="content-font text-center">Can't Decide? Let us choose for you!</h4>
           <button className="btn-search mt-1" onClick={() => randomMovie(currentMovies)}>
             Spin!
+          </button>
+        </div>
+        <div className="analyze__back-btn flex">
+          <h4 className="content-font text-center">Want to compare {currentMovies[0].title} to other movies?</h4>
+          <button className="btn-search mt-1" onClick={() => navigate(-1)}>
+            Go Back
           </button>
         </div>
       </div>
