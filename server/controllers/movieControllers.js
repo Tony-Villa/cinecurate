@@ -80,8 +80,10 @@ const trailer = async (req, res) => {
 };
 
 const genres = async (req, res) => {
+  const { page } = req.body;
+
   const resp = await axios.get(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${req.params.genre_id}&with_watch_monetization_types=flatrate`
+    `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${req.params.genre_id}&with_watch_monetization_types=flatrate`
   );
   const movies = await resp.data;
 
