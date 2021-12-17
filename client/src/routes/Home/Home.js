@@ -24,7 +24,13 @@ function Home() {
 
   return (
     <div className="home">
-      <div className="home__welcome">{user && <h1 className="header-font">WELCOME {user.first_name}!</h1>}</div>
+      {user ? (
+        <div className="home__welcome">{user && <h1 className="header-font">WELCOME {user.first_name}!</h1>}</div>
+      ) : (
+        <div className="home__welcome">
+          <h1 className="header-font">WELCOME!</h1>
+        </div>
+      )}
 
       <Carousel list={carouselOptions[0]} />
       <Carousel list={carouselOptions[1]} />

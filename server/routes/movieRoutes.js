@@ -10,6 +10,7 @@ router.get('/top_rated', ctrl.movies.top_rated);
 router.get('/upcoming', ctrl.movies.upcoming);
 router.get('/similar/:movie_id', ctrl.movies.similar);
 router.get('/:movie_id', ctrl.movies.show);
+router.get('/:genre_id', ctrl.movies.genres);
 
 // exports
 module.exports = router;

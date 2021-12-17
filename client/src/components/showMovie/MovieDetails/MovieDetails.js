@@ -13,7 +13,7 @@ const MovieDetails = ({ id, title, overview, genres, length }) => {
 
   const genGenrePills = (genre) => {
     return genre.map((el, idx) => (
-      <Link className="mr-1 " to="/browse" key={idx}>
+      <Link className="mr-1 " to={`/grenre/${el.id}`} key={idx}>
         <p className="btn-pill-pink show-details__genre-btn mr-1 content-font">{el.name}</p>
       </Link>
     ));
