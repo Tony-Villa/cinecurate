@@ -79,6 +79,15 @@ const trailer = async (req, res) => {
   res.status(200).json({ trailers });
 };
 
+const genres = async (req, res) => {
+  const resp = await axios.get(
+    `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${req.params.genre_id}&with_watch_monetization_types=flatrate`
+  );
+  const movies = await resp.data;
+
+  res.status(200).json({ movies });
+};
+
 module.exports = {
   show,
   search,
@@ -88,4 +97,5 @@ module.exports = {
   upcoming,
   credits,
   trailer,
+  genres,
 };

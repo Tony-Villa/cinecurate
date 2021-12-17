@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import BrowseGenre from '../BrowseGenre/BrowseGenre';
 import BrowseMovies from '../BrowseMovies/BrowseMovies';
 import Analyze from '../Compare/Analyze';
 import CompareSetup from '../Compare/CompareSetup';
@@ -15,5 +16,6 @@ export default (
     <Route path="/browse" element={<BrowseMovies />} />
     <Route path="/set-compare" element={<CompareSetup />} />
     <Route path="/analyze" element={<Analyze />} />
+    <Route path="/genre/:id" element={<BrowseGenre />} />
   </Routes>
 );
