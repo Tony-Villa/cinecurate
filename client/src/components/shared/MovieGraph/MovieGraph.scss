@@ -4,4 +4,22 @@
   // border: 1px solid lightcoral;
   width: 500px;
   height: 420px;
+
+  margin-bottom: 2rem;
+
+  @media only screen and (max-width: 1200px) {
+    width: 450px;
+    height: 325px;
+
+    margin: 0.5rem auto;
+
+    // margin-left: -100px;
+  }
+
+  @media only screen and (max-width: 700px) {
+    width: 375px;
+    height: 300px;
+
+    // margin-left: -100px;
+  }
 }

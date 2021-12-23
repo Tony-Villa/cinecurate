@@ -132,12 +132,12 @@ function MovieGraph({ title }) {
   };
 
   const commonProperties = {
-    width: 500,
-    height: 420,
+    // width: 500,
+    // height: 420,
     margin: { top: 60, right: 0, bottom: 60, left: 10 },
     data: data,
-    maxValue: 10,
     indexBy: 'category',
+    maxValue: 10,
     keys: [movieTitle],
     borderColor: '#e41f7b',
     colors: ['#e41f7b'],
@@ -156,7 +156,7 @@ function MovieGraph({ title }) {
 
   return (
     <div className="movie-graph">
-      <Radar
+      <ResponsiveRadar
         {...commonProperties}
         legends={[
           {

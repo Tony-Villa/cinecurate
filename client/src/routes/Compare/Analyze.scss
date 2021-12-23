@@ -15,7 +15,13 @@
   }
 
   &__all-movies {
+    margin-top: 3rem;
     flex-basis: 50%;
+
+    @media only screen and (max-width: 1200px) {
+      flex-wrap: wrap;
+    }
+
     &:nth-child(even) {
       @include flex(row, center, flex-start);
     }
