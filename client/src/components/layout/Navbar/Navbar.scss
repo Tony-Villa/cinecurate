@@ -8,6 +8,10 @@
 
   @include flex(row, space-between, center);
 
+  @media only screen and (max-width: 700px) {
+    padding: 0 get-spacing(8);
+  }
+
   a {
     color: white;
     text-decoration: none;
@@ -26,16 +30,28 @@
   &__logo {
     height: 100%;
     width: 15%;
+
+    @media only screen and (max-width: 700px) {
+      width: 25%;
+    }
   }
 
   &__logo-img {
     height: 4rem;
     // margin-top: 0.5rem;
+
+    @media only screen and (max-width: 700px) {
+      height: auto;
+    }
   }
 
   &__links {
     //   border: 1px solid white;
     width: 35%;
+
+    @media only screen and (max-width: 700px) {
+      width: 25%;
+    }
   }
 
   &__profile {

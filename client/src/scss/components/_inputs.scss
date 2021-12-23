@@ -25,6 +25,12 @@ input {
   outline: 0;
   padding: 22px 18px;
   z-index: 1;
+
+  @media only screen and (max-width: 700px) {
+    width: 10rem;
+    height: 2rem;
+    padding: 0.25rem;
+  }
 }
 
 // .search-movie {
