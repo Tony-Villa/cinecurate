@@ -17,6 +17,10 @@
 
     @include flex(row, center, center);
     flex-wrap: nowrap;
+
+    @media only screen and (max-width: 1200px) {
+      width: 90%;
+    }
   }
 
   &__search {
@@ -30,6 +34,11 @@
     border-radius: 1rem;
     background: #1c1c1c;
     box-shadow: inset 5px 5px 10px #161616, inset -5px -5px 10px #222222;
+
+    @media only screen and (max-width: 1200px) {
+      width: 90%;
+      padding-left: 0;
+    }
   }
 
   &__search-input {
