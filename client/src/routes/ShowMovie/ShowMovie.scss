@@ -1,6 +1,10 @@
 @use '../../scss/' as *;
 
 .show {
+  @media only screen and (max-width: 1440px) {
+    @include flex(column, flex-start, center);
+  }
+
   &__reviews {
     padding: 1rem;
     margin: 1.5rem;
@@ -9,11 +13,22 @@
     @include flex(row, center, flex-start);
   }
 
+  &__bottom {
+    @media only screen and (max-width: 1200px) {
+      @include flex(column, flex-start, center);
+    }
+  }
+
   &__similar {
     padding: 1rem;
     margin: 1.5rem;
     height: 90rem;
 
     // border: 1px solid white;
+
+    @media only screen and (max-width: 1200px) {
+      height: 25rem;
+      width: 37rem;
+    }
   }
 }

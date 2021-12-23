@@ -42,6 +42,11 @@
   border-radius: 2px;
   padding: 6px 36px;
 
+  @media only screen and (max-width: 700px) {
+    padding: 0.25rem;
+    height: 2rem;
+  }
+
   &:hover {
     background: darken($accentColor, 4%);
   }
@@ -53,6 +58,10 @@
 
   &__inside {
     margin-left: -96px;
+
+    @media only screen and (max-width: 700px) {
+      margin-left: 0;
+    }
   }
 }
 
