@@ -8,26 +8,19 @@
 
   @include flex(row, space-between, flex-start);
 
+  @media only screen and (max-width: 1440px) {
+    @include flex(column, flex-start, center);
+
+    height: fit-content;
+  }
+
   &__img-mask {
     position: absolute;
     top: -7rem;
     height: 36.5rem;
     width: 100%;
-    // background-color: $bgColor;
     z-index: -1;
-    // background-image: linear-gradient(
-    //   to bottom,
-    //   rgba(28, 28, 28, 0),
-    //   rgba(28, 28, 28, 0.05),
-    //   rgba(28, 28, 28, 0.09),
-    //   rgba(28, 28, 28, 0.2),
-    //   rgba(28, 28, 28, 0.57),
-    //   rgba(28, 28, 28, 0.69),
-    //   rgba(28, 28, 28, 0.75),
-    //   rgba(28, 28, 28, 0.76),
-    //   rgba(28, 28, 28, 0.77),
-    //   rgba(28, 28, 28, 1)
-    // );
+
     background-image: linear-gradient(
       to bottom,
       hsla(0, 0%, 11%, 0.1) 0%,
@@ -57,12 +50,15 @@
     width: 100%;
     object-fit: cover;
     z-index: -10;
-    // mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) rgba(0, 0, 0, 0));
   }
 
   &__info {
     width: 60%;
     padding-left: 3rem;
+
+    @media only screen and (max-width: 1200px) {
+      padding-left: 0;
+    }
   }
 
   &__graph {
