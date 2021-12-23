@@ -20,6 +20,7 @@
 
   &__nav {
     @include flex(row, center, center);
+    flex-wrap: wrap;
   }
 
   &__options {
@@ -62,8 +63,16 @@
 
 .review-content-container-even {
   @include flex(row, flex-start, baseline);
+
+  @media only screen and (max-width: 1200px) {
+    margin-top: 1rem;
+  }
 }
 
 .review-content-container-odd {
   @include flex(row, flex-end, baseline);
+
+  @media only screen and (max-width: 1200px) {
+    margin-top: 1rem;
+  }
 }
