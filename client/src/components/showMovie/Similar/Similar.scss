@@ -8,4 +8,11 @@
   border-radius: 1rem;
   background: #1c1c1c;
   box-shadow: inset 5px 5px 10px #161616, inset -5px -5px 10px #222222;
+
+  &__movies {
+    @media only screen and (max-width: 1200px) {
+      display: flex;
+      padding: 0.25;
+    }
+  }
 }
