@@ -8,7 +8,7 @@
 
   @include flex(row, space-between, flex-start);
 
-  @media only screen and (max-width: 1440px) {
+  @media only screen and (max-width: 1200px) {
     @include flex(column, flex-start, center);
 
     height: fit-content;
