@@ -63,6 +63,14 @@
     position: absolute;
     top: 22%;
     right: 10rem;
+
+    @media only screen and (max-width: 1200px) {
+      position: relative;
+      right: 0;
+      width: 80%;
+      height: fit-content;
+      margin: 0 auto;
+    }
   }
 
   &__back-btn {
@@ -78,5 +86,14 @@
     position: absolute;
     top: 22%;
     left: 10rem;
+
+    @media only screen and (max-width: 1200px) {
+      position: relative;
+      left: 0;
+      width: 80%;
+      min-height: 7rem;
+      height: fit-content;
+      margin: 1rem auto;
+    }
   }
 }

@@ -66,16 +66,18 @@ const Analyze = () => {
         <div className="analyze__graph flex">
           <AnalyzeGraph currentMovies={currentMovies} />
         </div>
-        <div className="analyze__choose-btn flex">
-          <h4 className="content-font text-center">Can't Decide? Let us choose for you!</h4>
-          <button className="btn-search mt-1" onClick={() => randomMovie(currentMovies)}>
-            Spin!
-          </button>
-        </div>
+
         <div className="analyze__back-btn flex">
           <h4 className="content-font text-center">Want to compare {currentMovies[0].title} to other movies?</h4>
           <button className="btn-search mt-1" onClick={() => navigate(-1)}>
             Go Back
+          </button>
+        </div>
+
+        <div className="analyze__choose-btn flex">
+          <h4 className="content-font text-center">Can't Decide? Let us choose for you!</h4>
+          <button className="btn-search mt-1" onClick={() => randomMovie(currentMovies)}>
+            Spin!
           </button>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Radar } from '@nivo/radar';
+import { ResponsiveRadar } from '@nivo/radar';
 import { useParams } from 'react-router-dom';
 import './AnalyzeGraph.scss';
 import { ReloadContext } from '../../../Context/ReloadContext';
@@ -147,8 +147,8 @@ const AnalyzeGraph = ({ currentMovies }) => {
   let titleArr = movieListData.map((el) => el.title);
 
   const commonProperties = {
-    width: 720,
-    height: 500,
+    // width: 720,
+    // height: 500,
     margin: { top: 60, right: 0, bottom: 60, left: 10 },
     data: graphData,
     maxValue: 10,
@@ -171,7 +171,7 @@ const AnalyzeGraph = ({ currentMovies }) => {
 
   return (
     <div className="movie-graph">
-      <Radar
+      <ResponsiveRadar
         {...commonProperties}
         legends={[
           {
