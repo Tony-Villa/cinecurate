@@ -26,7 +26,13 @@ input {
   padding: 22px 18px;
   z-index: 1;
 
-  @media only screen and (max-width: 700px) {
+  @media only screen and (max-width: 1200px) {
+    width: 17rem;
+    height: 2.75rem;
+    padding: 0.25rem;
+  }
+
+  @media only screen and (max-width: 850px) {
     width: 10rem;
     height: 2rem;
     padding: 0.25rem;
