@@ -13,6 +13,10 @@
     @include flex(row, center, flex-start);
 
     @media only screen and (max-width: 1200px) {
+      width: 60rem;
+    }
+
+    @media only screen and (max-width: 800px) {
       width: 40rem;
     }
   }
@@ -31,6 +35,11 @@
     // border: 1px solid white;
 
     @media only screen and (max-width: 1200px) {
+      height: 25rem;
+      width: 60rem;
+    }
+
+    @media only screen and (max-width: 800px) {
       height: 25rem;
       width: 37rem;
     }
