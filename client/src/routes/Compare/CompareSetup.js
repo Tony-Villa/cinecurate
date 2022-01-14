@@ -166,9 +166,9 @@ const CompareSetup = () => {
             </div>
           )}
         </div>
-        <div className="query-results__load flex">
+        <div className="compare__load flex">
           {page !== maxPage && page !== 0 && (
-            <button className="btn btn-cta " onClick={() => getQuery()}>
+            <button className="btn btn-cta mb-1" onClick={() => getQuery()}>
               Load More
             </button>
           )}
