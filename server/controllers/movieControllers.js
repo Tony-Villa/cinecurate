@@ -31,14 +31,16 @@ const recentReviewed = async (req, res, next) => {
     });
 
     const fetchReviewed = async (arr) => {
-      let movieDetails = [];
+      let details = [];
       for (let i = 0; i < arr; i++) {
         const resp = await axios.get(arr[i]);
         const data = await resp.data;
-        movieDetails.push(data);
+        details.push(data);
       }
-      return movieDetails;
+      return details;
     };
+
+    let movieDetails = await fetchReviewed(recentArr);
 
     // const resp = await axios.all(
     //   recentArr.map((endpoint) => {
@@ -47,7 +49,7 @@ const recentReviewed = async (req, res, next) => {
     // );
     // const movieDetails = await resp.data;
 
-    res.status(200).json({ movies: await fetchReviewed(recentArr) });
+    res.status(200).json({ movies: movieDetails });
   } catch (error) {
     console.log(error);
     next();
