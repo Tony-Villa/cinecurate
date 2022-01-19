@@ -1,4 +1,5 @@
 const axios = require('axios');
+const pool = require('../db_config/db');
 require('dotenv').config();
 
 const apiKey = process.env.APIKEY;
@@ -9,6 +10,32 @@ const show = async (req, res, next) => {
       `https://api.themoviedb.org/3/movie/${req.params.movie_id}?api_key=${apiKey}&language=en-US`
     );
     const movieDetails = await resp.data;
+
+    res.status(200).json({ movie: movieDetails });
+  } catch (error) {
+    console.log(error);
+    next();
+  }
+};
+
+const recentReviewed = async (req, res, next) => {
+  try {
+    const reviewed = await pool.query(
+      `SELECT * FROM
+      (SELECT DISTINCT ON(movie_id) movie_id,movie_title,updated_at
+       FROM reviews
+       ORDER BY movie_id,updated_at
+      ) AS titles
+    ORDER BY updated_at ASC
+    LIMIT 10`
+    );
+
+    const reviewsObj = { reviews: reviewed.rows };
+
+    // const resp = await axios.get(
+    //   `https://api.themoviedb.org/3/movie/${req.params.movie_id}?api_key=${apiKey}&language=en-US`
+    // );
+    // const movieDetails = await resp.data;
 
     res.status(200).json({ movie: movieDetails });
   } catch (error) {
@@ -92,6 +119,7 @@ const genres = async (req, res) => {
 
 module.exports = {
   show,
+  recentReviewed,
   search,
   popular,
   similar,
