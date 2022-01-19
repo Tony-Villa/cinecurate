@@ -21,16 +21,12 @@ const show = async (req, res, next) => {
 const recentReviewed = async (req, res, next) => {
   try {
     const reviewed = await pool.query(
-      `SELECT * FROM
-      (SELECT DISTINCT ON(movie_id) movie_id,movie_title,updated_at
-       FROM reviews
-       ORDER BY movie_id,updated_at
-      ) AS titles
-    ORDER BY updated_at ASC
-    LIMIT 10`
+      `SELECT * FROM (SELECT DISTINCT ON(movie_id) movie_id,movie_title,updated_at FROM reviews ORDER BY movie_id,updated_at) AS titles ORDER BY updated_at ASC LIMIT 10`
     );
 
     const reviewsObj = { reviews: reviewed.rows };
+    console.log(reviewed);
+    console.log(reviewsObj);
 
     // const resp = await axios.get(
     //   `https://api.themoviedb.org/3/movie/${req.params.movie_id}?api_key=${apiKey}&language=en-US`
@@ -40,6 +36,7 @@ const recentReviewed = async (req, res, next) => {
     res.status(200).json({ reviews: reviewed.rows });
   } catch (error) {
     console.log(error);
+    console.log(reviewed);
     next();
   }
 };
