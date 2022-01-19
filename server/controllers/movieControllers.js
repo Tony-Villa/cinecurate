@@ -30,7 +30,7 @@ const recentReviewed = async (req, res, next) => {
       return `https://api.themoviedb.org/3/movie/${movie.movie_id}?api_key=${apiKey}&language=en-US`;
     });
 
-    const fetchedPromises = recentArr.map((endpoint) => axios.get(endpoint));
+    const fetchedPromises = recentArr.map((endpoint) => axios.get(endpoint).then((res) => res.data));
 
     // Promise.all(fetchedPromises).then((movieDetails) => {
     //   res.status(200).json({ movies: movieDetails });
