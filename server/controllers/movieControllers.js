@@ -30,13 +30,15 @@ const recentReviewed = async (req, res, next) => {
       return `https://api.themoviedb.org/3/movie/${movie.movie_id}?api_key=${apiKey}&language=en-US`;
     });
 
-    let movieDetails = [];
-
-    for (let i = 0; i < recentArr; i++) {
-      const resp = await axios.get(recentArr[i]);
-      const data = await resp.data;
-      movieDetails.push(data);
-    }
+    const fetchReviewed = async (arr) => {
+      let movieDetails = [];
+      for (let i = 0; i < arr; i++) {
+        const resp = await axios.get(arr[i]);
+        const data = await resp.data;
+        movieDetails.push(data);
+      }
+      return movieDetails;
+    };
 
     // const resp = await axios.all(
     //   recentArr.map((endpoint) => {
@@ -45,7 +47,7 @@ const recentReviewed = async (req, res, next) => {
     // );
     // const movieDetails = await resp.data;
 
-    res.status(200).json({ movies: movieDetails });
+    res.status(200).json({ movies: fetchReviewed(recentArr) });
   } catch (error) {
     console.log(error);
     next();
