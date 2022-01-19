@@ -32,9 +32,13 @@ const recentReviewed = async (req, res, next) => {
 
     const fetchedPromises = recentArr.map((endpoint) => axios.get(endpoint));
 
-    Promise.all(fetchedPromises).then((movieDetails) => {
-      res.status(200).json({ movies: movieDetails });
-    });
+    // Promise.all(fetchedPromises).then((movieDetails) => {
+    //   res.status(200).json({ movies: movieDetails });
+    // });
+
+    const movieDetails = await Promise.all(fetchedPromises);
+
+    res.status(200).json({ movies: movieDetails });
   } catch (error) {
     console.log(error);
     next();
