@@ -26,13 +26,13 @@ const recentReviewed = async (req, res, next) => {
 
     const reviewsObj = { reviews: reviewed.rows };
 
-    // const recentArr = reviewsObj.reviews.map((movie, i) => {
-    //   return `https://api.themoviedb.org/3/movie/${movie.movie_id}?api_key=${apiKey}&language=en-US`;
-    // });
+    const recentArr = reviewsObj.reviews.map((movie, i) => {
+      return `https://api.themoviedb.org/3/movie/${movie.movie_id}?api_key=${apiKey}&language=en-US`;
+    });
 
     const resp = await axios.all(
-      reviewsObj.reviews.map((movie) => {
-        axios.get(`https://api.themoviedb.org/3/movie/${movie.movie_id}?api_key=${apiKey}&language=en-US`);
+      recentArr.map((endpoint) => {
+        axios.get(endpoint);
       })
     );
     const movieDetails = await resp.data;
@@ -40,7 +40,6 @@ const recentReviewed = async (req, res, next) => {
     res.status(200).json({ movies: movieDetails });
   } catch (error) {
     console.log(error);
-    console.log(reviewed);
     next();
   }
 };
