@@ -47,7 +47,7 @@ const recentReviewed = async (req, res, next) => {
     // );
     // const movieDetails = await resp.data;
 
-    res.status(200).json({ movies: fetchReviewed(recentArr) });
+    res.status(200).json({ movies: await fetchReviewed(recentArr) });
   } catch (error) {
     console.log(error);
     next();
