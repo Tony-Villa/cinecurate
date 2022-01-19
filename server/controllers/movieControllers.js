@@ -32,15 +32,11 @@ const recentReviewed = async (req, res, next) => {
 
     let movieDetails = [];
 
-    const fetchReviewed = async (arr) => {
-      for (let i = 0; i < arr; i++) {
-        const resp = await axios.get(arr[i]);
-        const data = await resp.data;
-        movieDetails.push(data);
-      }
-    };
-
-    fetchReviewed(recentArr);
+    for (let i = 0; i < recentArr; i++) {
+      const resp = await axios.get(recentArr[i]);
+      const data = await resp.data;
+      movieDetails.push(data);
+    }
 
     // const resp = await axios.all(
     //   recentArr.map((endpoint) => {
