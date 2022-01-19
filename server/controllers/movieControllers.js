@@ -37,7 +37,7 @@ const recentReviewed = async (req, res, next) => {
     // );
     // const movieDetails = await resp.data;
 
-    res.status(200).json({ movie: movieDetails });
+    res.status(200).json({ reviews: reviewed.rows });
   } catch (error) {
     console.log(error);
     next();
