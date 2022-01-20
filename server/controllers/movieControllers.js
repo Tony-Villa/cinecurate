@@ -11,7 +11,7 @@ const show = async (req, res, next) => {
     );
     const movieDetails = await resp.data;
 
-    res.status(200).json({ movie: { results: movieDetails } });
+    res.status(200).json({ movie: movieDetails });
   } catch (error) {
     console.log(error);
     next();
@@ -34,7 +34,7 @@ const recentReviewed = async (req, res, next) => {
 
     const movieDetails = await Promise.all(fetchedPromises);
 
-    res.status(200).json({ movies: movieDetails });
+    res.status(200).json({ movies: { results: movieDetails } });
   } catch (error) {
     console.log(error);
     next();
