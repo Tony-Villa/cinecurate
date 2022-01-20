@@ -9,12 +9,12 @@ function Home() {
 
   const carouselOptions = [
     {
-      api: 'popular',
-      label: 'Popular',
+      api: 'recents',
+      label: 'Recently Reviewed',
     },
     {
-      api: 'top_rated',
-      label: 'Top Rated',
+      api: 'popular',
+      label: 'Popular',
     },
     {
       api: 'upcoming',
