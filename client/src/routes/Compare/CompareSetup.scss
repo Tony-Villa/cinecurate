@@ -73,5 +73,6 @@
 
   &__load {
     margin-bottom: 1rem;
+    @include flex(row, center, center);
   }
 }
