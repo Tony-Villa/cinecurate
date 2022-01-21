@@ -27,6 +27,19 @@ const CompareSetup = () => {
     ]);
   };
 
+  const initialResults = async () => {
+    try {
+      const res = await fetch(`https://api-cinecurate.herokuapp.com/v1/movies/recents`);
+      const parsedRes = await res.json();
+
+      const data = parsedRes.movies.results.filter((movie) => movie.id !== currentMovies[0].id);
+
+      setQueryResults(data);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
   const submitForm = async (e) => {
     e.preventDefault();
     let page = 1;
@@ -66,6 +79,7 @@ const CompareSetup = () => {
 
   useEffect(() => {
     initCurrent();
+    initialResults();
   }, []);
 
   const handleAdd = ({ title, id, poster_path }) => {
