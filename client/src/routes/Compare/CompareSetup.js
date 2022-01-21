@@ -32,7 +32,7 @@ const CompareSetup = () => {
       const res = await fetch(`https://api-cinecurate.herokuapp.com/v1/movies/recents`);
       const parsedRes = await res.json();
 
-      const data = parsedRes.movies.results.filter((movie) => movie.id !== currentMovies[0].id);
+      const data = parsedRes.movies.results.filter((movie) => movie.id !== id);
 
       setQueryResults(data);
     } catch (err) {
@@ -51,6 +51,7 @@ const CompareSetup = () => {
       const parseResp = await response.json();
       const data = parseResp.movie.results;
 
+      setQueryResults([]);
       setQueryResults(data);
       setPage(1);
     } catch (err) {
